@@ -1,50 +1,76 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+- Version change: 0.0.0 → 0.1.0 (MINOR)
+- Modified principles: n/a (all newly defined)
+- Added sections: Core Principles, Constraints, Workflow, Governance
+- Removed sections: none
+- Templates requiring updates:
+	✅ .specify/templates/plan-template.md (Constitution Check references this file generically)
+	✅ .specify/templates/spec-template.md (no conflicting references)
+	✅ .specify/templates/tasks-template.md (path conventions align with static app)
+- Follow-up TODOs:
+	- TODO(RATIFICATION_DATE): original adoption date unknown; set when known
+-->
+
+# btarcetsite Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Static-First Simplicity (NON-NEGOTIABLE)
+The site is a static web app: HTML/CSS/JS only. No server-side
+code, databases, or runtime backends. Client-side enhancements
+must be progressive and optional.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Minimal Structure & Build
+Source lives in `src/` with `src/index.html` and `src/404.html`.
+Optional `public/` for assets copied verbatim. A build produces
+`dist/` via `npm run build`, minifying CSS/JS and optimizing images.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+Framework allowance:
+- Framework-generated `index.html` at build time is acceptable (e.g., Next.js pre-render).
+- When a framework outputs a static export directory named `out/`, treat it as equivalent to `dist/` for deployment and CI.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### III. Accessibility & Performance Baseline
+Pages MUST use semantic headings, alt text for images, and labels
+for inputs. Production builds MUST minify assets and serve optimized
+images. Last-two evergreen browsers MUST be supported.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### IV. Routing & Deployment
+Root routing serves `index.html`. If SPA routing is used, requests
+MUST gracefully fall back to `index.html`. A `404.html` MUST be
+present. Deploy `dist/` to a static host with caching headers.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+Framework allowance:
+- If a framework produces `index.html` during build, a physical `src/index.html` is not required.
+- Static export artifacts (e.g., `out/`) MAY be deployed directly when recognized as the build output.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### V. CI/CD & Reviews
+`npm run build` MUST succeed on PRs. A basic GitHub Actions workflow
+MUST build on pushes and PRs. Changes to `src/` and build scripts
+MUST receive at least one review before merge.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Constraints & Security Requirements
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- HTTPS-only resources; no mixed content.
+- No secrets in source; no inline credentials.
+- Include a basic Content Security Policy in `index.html`.
+- Use `.editorconfig` for consistent whitespace and `.gitignore` to
+	exclude `node_modules/` and `dist/`.
+
+## Development Workflow & Quality Gates
+
+- Default branch: `main`.
+- Required gates on PRs: lint passes (if configured), build succeeds,
+	accessibility checklist satisfied (headings, alt text, form labels).
+- `README.md` MUST document quick start, build, and deploy steps.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- This constitution supersedes other practices for the static site.
+- Amendments require documentation in PR description and reviewer
+	approval. Material additions trigger MINOR version bump; removals or
+	redefinitions trigger MAJOR.
+- Compliance checks: reviewers verify principles and gates on each PR.
+- Versioning policy: Semantic Versioning for the constitution text.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 0.1.0 | **Ratified**: TODO(RATIFICATION_DATE): original adoption date unknown | **Last Amended**: 2025-12-14
