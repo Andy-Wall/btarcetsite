@@ -46,9 +46,14 @@ export function loadAllSessions(): Session[] {
     for (const file of files) {
       if (file.endsWith('.json')) {
         const filePath = path.join(sessionsDir, file);
-        const content = fs.readFileSync(filePath, 'utf-8');
-        const session: Session = JSON.parse(content);
-        sessions.push(session);
+        try {
+          const content = fs.readFileSync(filePath, 'utf-8');
+          const session: Session = JSON.parse(content);
+          sessions.push(session);
+        } catch (parseError) {
+          console.error(`Error parsing session file ${file}:`, parseError);
+          // Continue processing other files
+        }
       }
     }
     
@@ -71,11 +76,13 @@ export function partitionSessions(
 ): PartitionedSessions {
   const upcoming: Session[] = [];
   const history: Session[] = [];
+  const refTime = referenceDate.getTime();
   
   for (const session of sessions) {
     const sessionDate = new Date(session.startDateTime);
     
-    if (sessionDate >= referenceDate) {
+    // Sessions at or after the reference date are considered upcoming
+    if (sessionDate.getTime() >= refTime) {
       upcoming.push(session);
     } else {
       history.push(session);
@@ -83,6 +90,7 @@ export function partitionSessions(
   }
   
   // Sort upcoming sessions in ascending order (earliest first)
+  // Cache parsed dates for efficiency
   upcoming.sort((a, b) => {
     return new Date(a.startDateTime).getTime() - new Date(b.startDateTime).getTime();
   });
