@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "echo 'Export completed during build (output: export mode)'"
   },
   "dependencies": {
     "react": "^18",
