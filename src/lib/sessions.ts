@@ -90,7 +90,6 @@ export function partitionSessions(
   }
   
   // Sort upcoming sessions in ascending order (earliest first)
-  // Cache parsed dates for efficiency
   upcoming.sort((a, b) => {
     return new Date(a.startDateTime).getTime() - new Date(b.startDateTime).getTime();
   });
