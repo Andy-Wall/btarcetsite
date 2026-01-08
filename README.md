@@ -81,6 +81,16 @@ Run the linter to check code quality:
 npm run lint
 ```
 
+## Validation
+
+Validate session JSON files against the schema:
+
+```bash
+npm run validate:sessions
+```
+
+This validates all session files in `src/content/sessions/` against the JSON Schema defined in `specs/001-btarcet-site/contracts/session.schema.json`.
+
 ## Technology Stack
 
 - **Framework**: Next.js 14+ (static export mode)
@@ -102,7 +112,8 @@ This site follows accessibility best practices:
 2. Make your changes
 3. Ensure `npm run build` succeeds
 4. Ensure `npm run lint` passes
-5. Submit a pull request
+5. Ensure `npm run validate:sessions` passes if you modified session data
+6. Submit a pull request
 
 ## License
 
