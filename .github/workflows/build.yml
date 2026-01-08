@@ -2,9 +2,9 @@ name: Build and Export
 
 on:
   push:
-    branches: [ main ]
+    branches: [ 001-btarcet-site ]
   pull_request:
-    branches: [ main ]
+    branches: [ 001-btarcet-site ]
 
 jobs:
   build:
