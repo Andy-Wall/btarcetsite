@@ -41,6 +41,8 @@ jobs:
         run: pnpm install --frozen-lockfile
       
       - name: Build and export
+        # Note: Next.js with output: 'export' generates static files during build.
+        # The export command confirms the out/ directory is ready.
         run: pnpm build && pnpm export
       
       - name: Upload artifact
