@@ -108,7 +108,7 @@ All pages use a logical heading hierarchy:
 - **One `<h1>` per page**: The main page title (e.g., "BTARCET Architecture Team Site")
 - **Headings follow sequential order**: Never skip levels (h1 → h2 → h3, not h1 → h3)
 - **Descriptive heading text**: Clearly identifies the content section
-- **Navigation landmark**: Use `<nav>` with appropriate labels for screen readers
+- **Navigation landmark**: Use `<nav>` with `aria-label` for screen readers (e.g., `<nav aria-label="Main navigation">`)
 
 Example heading structure:
 ```
@@ -145,7 +145,7 @@ All interactive elements must be keyboard accessible:
 - [ ] All interactive elements (links, buttons, form controls) are keyboard focusable
 - [ ] Tab order follows logical reading order (left-to-right, top-to-bottom)
 - [ ] Focus indicators are clearly visible (outline or custom styling)
-- [ ] Skip link is provided to bypass navigation ("Skip to main content")
+- [ ] Skip link is the first focusable element, hidden until focused, to bypass navigation ("Skip to main content")
 - [ ] No keyboard traps (users can tab away from all elements)
 
 #### Keyboard Shortcuts
