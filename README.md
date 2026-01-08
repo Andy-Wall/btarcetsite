@@ -100,11 +100,79 @@ This validates all session files in `src/content/sessions/` against the JSON Sch
 
 ## Accessibility
 
-This site follows accessibility best practices:
-- Semantic HTML headings
-- Alt text for images
-- Labels for form inputs
-- Support for last two versions of evergreen browsers
+This site follows WCAG 2.1 Level AA accessibility guidelines to ensure an inclusive experience for all users.
+
+### Semantic HTML Headings
+
+All pages use a logical heading hierarchy:
+- **One `<h1>` per page**: The main page title (e.g., "BTARCET Architecture Team Site")
+- **Headings follow sequential order**: Never skip levels (h1 → h2 → h3, not h1 → h3)
+- **Descriptive heading text**: Clearly identifies the content section
+- **Navigation landmark**: Use `<nav>` with `aria-label` for screen readers (e.g., `<nav aria-label="Main navigation">`)
+
+Example heading structure:
+```
+h1: Page Title
+  h2: Main Section
+    h3: Subsection
+    h3: Subsection
+  h2: Another Section
+```
+
+### Alt Text for Images
+
+All images must include meaningful alternative text:
+- **Decorative images**: Use empty alt attribute (`alt=""`) so screen readers skip them
+- **Informative images**: Describe the content/function (e.g., `alt="System architecture diagram"`)
+- **Functional images**: Describe the action (e.g., `alt="Download session slides"`)
+- **Complex images**: Provide detailed description in surrounding text or with `aria-describedby`
+- **Avoid redundancy**: Don't include "image of" or "picture of" in alt text
+
+### Labels for Form Inputs
+
+All form controls must have associated labels:
+- **Use `<label>` elements**: Associate with `for` attribute or wrap the input
+- **Required fields**: Indicate with `aria-required="true"` and visible indicator (*)
+- **Error messages**: Use `aria-invalid` and `aria-describedby` for validation errors
+- **Placeholder text**: Never use as a replacement for labels
+- **Button text**: Use descriptive text (e.g., "Submit feedback" not just "Submit")
+
+### Keyboard Navigation Checklist
+
+All interactive elements must be keyboard accessible:
+
+#### Focus Management
+- [ ] All interactive elements (links, buttons, form controls) are keyboard focusable
+- [ ] Tab order follows logical reading order (left-to-right, top-to-bottom)
+- [ ] Focus indicators are clearly visible (outline or custom styling)
+- [ ] Skip link is the first focusable element, hidden until focused, to bypass navigation ("Skip to main content")
+- [ ] No keyboard traps (users can tab away from all elements)
+
+#### Keyboard Shortcuts
+- [ ] **Tab**: Move focus forward through interactive elements
+- [ ] **Shift+Tab**: Move focus backward
+- [ ] **Enter**: Activate buttons and links
+- [ ] **Space**: Activate buttons and toggle checkboxes
+- [ ] **Arrow keys**: Navigate within custom components (menus, tabs, etc.)
+- [ ] **Escape**: Close modals, dropdowns, and overlays
+
+#### Interactive Components
+- [ ] Modals/dialogs trap focus until closed
+- [ ] Dropdown menus are navigable with arrow keys
+- [ ] Custom components use appropriate ARIA roles and states
+- [ ] Form validation messages are announced to screen readers
+
+#### Testing
+- [ ] Test all pages with keyboard only (unplug mouse)
+- [ ] Test with screen readers (NVDA, JAWS, VoiceOver)
+- [ ] Run automated accessibility checks (Lighthouse, axe DevTools)
+- [ ] Verify color contrast ratios meet WCAG AA standards (4.5:1 for normal text, 3:1 for large text)
+
+### Browser Support
+
+- Last 2 versions of evergreen browsers (Chrome, Firefox, Safari, Edge)
+- Responsive design tested on mobile, tablet, and desktop viewports
+- Graceful degradation for older browsers
 
 ## Contributing
 
