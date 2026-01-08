@@ -26,7 +26,7 @@ export default function SessionCard({ session }: SessionCardProps) {
         <div className="mb-2">
           <span className="font-semibold">Speaker(s): </span>
           {session.speakers.map((speaker, index) => (
-            <span key={index}>
+            <span key={`${speaker.name}-${index}`}>
               {speaker.name}
               {speaker.roleOrTitle && ` (${speaker.roleOrTitle})`}
               {index < session.speakers.length - 1 ? ', ' : ''}
