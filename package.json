@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "test -d out && echo '✓ Static export ready: out/ directory contains static site' || (echo '✗ Error: out/ directory not found. Run pnpm build first.' && exit 1)"
   },
   "dependencies": {
     "react": "^18",
