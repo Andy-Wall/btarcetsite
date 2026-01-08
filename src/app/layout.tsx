@@ -4,6 +4,9 @@ import '../styles/globals.css';
 export const metadata: Metadata = {
   title: 'BTARCET Architecture Team Site',
   description: 'Bosch Building Technologies Architecture Engineering Team site',
+  other: {
+    'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';",
+  },
 };
 
 export const viewport: Viewport = {
