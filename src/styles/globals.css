@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   BTARCET Global Styles & Theme
+   ============================================
+   Responsive base with a11y-friendly semantics
+   ============================================ */
+
+@layer base {
+  /* Root variables for theming */
+  :root {
+    --color-primary: 220 90% 56%;
+    --color-secondary: 217 91% 60%;
+    --color-accent: 142 76% 36%;
+    --color-background: 210 40% 98%;
+    --color-foreground: 222 47% 11%;
+    --color-muted: 210 40% 96%;
+    --color-border: 214 32% 91%;
+  }
+
+  .dark {
+    --color-background: 222 47% 11%;
+    --color-foreground: 210 40% 98%;
+    --color-muted: 217 33% 17%;
+    --color-border: 217 33% 17%;
+  }
+
+  /* Base HTML elements */
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply min-h-screen;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  /* Focus styles for keyboard navigation (a11y) */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-blue-600;
+  }
+
+  /* Headings hierarchy for screen readers */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl sm:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl sm:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl sm:text-3xl lg:text-4xl;
+  }
+
+  h4 {
+    @apply text-xl sm:text-2xl;
+  }
+
+  h5 {
+    @apply text-lg sm:text-xl;
+  }
+
+  h6 {
+    @apply text-base sm:text-lg;
+  }
+
+  /* Links with accessible contrast */
+  a {
+    @apply text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors;
+  }
+
+  /* Buttons and interactive elements */
+  button {
+    @apply transition-all duration-200;
+  }
+
+  /* Form elements with accessible focus states */
+  input, select, textarea {
+    @apply transition-colors;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    @apply ring-2 ring-blue-600 ring-offset-2;
+  }
+}
+
+@layer utilities {
+  /* Screen reader only utility (a11y) */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .not-sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  /* Skip link for keyboard navigation (a11y) */
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  /* Container utilities for responsive layout */
+  .container-responsive {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+}
+
+/* ============================================
+   Animations for smooth interactions
+   ============================================ */
+@layer utilities {
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
