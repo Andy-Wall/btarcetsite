@@ -123,7 +123,7 @@ h1: Page Title
 
 All images must include meaningful alternative text:
 - **Decorative images**: Use empty alt attribute (`alt=""`) so screen readers skip them
-- **Informative images**: Describe the content/function (e.g., `alt="Team meeting schedule"`)
+- **Informative images**: Describe the content/function (e.g., `alt="System architecture diagram"`)
 - **Functional images**: Describe the action (e.g., `alt="Download session slides"`)
 - **Complex images**: Provide detailed description in surrounding text or with `aria-describedby`
 - **Avoid redundancy**: Don't include "image of" or "picture of" in alt text
@@ -166,7 +166,7 @@ All interactive elements must be keyboard accessible:
 - [ ] Test all pages with keyboard only (unplug mouse)
 - [ ] Test with screen readers (NVDA, JAWS, VoiceOver)
 - [ ] Run automated accessibility checks (Lighthouse, axe DevTools)
-- [ ] Verify color contrast ratios meet WCAG AA standards (4.5:1 for text)
+- [ ] Verify color contrast ratios meet WCAG AA standards (4.5:1 for normal text, 3:1 for large text)
 
 ### Browser Support
 
