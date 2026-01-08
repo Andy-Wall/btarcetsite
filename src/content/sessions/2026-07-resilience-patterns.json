@@ -1,0 +1,22 @@
+{
+  "id": "2026-07-resilience-patterns",
+  "title": "Building Resilient Systems: Patterns and Practices",
+  "startDateTime": "2026-07-21T14:00:00+02:00",
+  "durationMinutes": 90,
+  "summary": "Ensuring high availability and fault tolerance in building automation systems.",
+  "description": "Learn proven resilience patterns including circuit breakers, bulkheads, retry strategies, and graceful degradation. We'll examine how to design systems that continue operating even when components fail, with specific focus on building automation reliability requirements.",
+  "speakers": [
+    {
+      "name": "Robert Fischer",
+      "roleOrTitle": "Reliability Engineer",
+      "organization": "Bosch Building Technologies"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Release It! Book",
+      "url": "https://pragprog.com/titles/mnee2/release-it-second-edition/"
+    }
+  ],
+  "tags": ["resilience", "reliability", "fault-tolerance", "patterns"]
+}

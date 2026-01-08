@@ -1,0 +1,22 @@
+{
+  "id": "2026-06-mobile-first-design",
+  "title": "Mobile-First Design for Building Management Apps",
+  "startDateTime": "2026-06-16T13:30:00+02:00",
+  "durationMinutes": 90,
+  "summary": "Creating mobile-first experiences for facility managers and building operators.",
+  "description": "Explore mobile-first design principles and progressive web app technologies for building management applications. Learn about offline-first strategies, responsive design patterns, and mobile-specific UX considerations for building operators in the field.",
+  "speakers": [
+    {
+      "name": "Sophie Laurent",
+      "roleOrTitle": "UX Architect",
+      "organization": "Bosch Building Technologies"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Mobile First Design",
+      "url": "https://www.uxpin.com/studio/blog/a-hands-on-guide-to-mobile-first-design/"
+    }
+  ],
+  "tags": ["mobile", "UX", "progressive-web-apps", "design"]
+}

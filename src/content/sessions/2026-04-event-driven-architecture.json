@@ -1,0 +1,22 @@
+{
+  "id": "2026-04-event-driven-architecture",
+  "title": "Event-Driven Architecture for Building Automation",
+  "startDateTime": "2026-04-21T14:30:00+02:00",
+  "durationMinutes": 90,
+  "summary": "Implementing event-driven patterns for responsive building management systems.",
+  "description": "Discover how event-driven architecture enables real-time responsiveness in building automation. We'll cover event sourcing, CQRS patterns, message brokers, and event streaming platforms. Practical examples demonstrate how to build loosely coupled, scalable systems.",
+  "speakers": [
+    {
+      "name": "Jennifer Lee",
+      "roleOrTitle": "Solutions Architect",
+      "organization": "Bosch Building Technologies"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Event-Driven Architecture",
+      "url": "https://aws.amazon.com/event-driven-architecture/"
+    }
+  ],
+  "tags": ["event-driven", "CQRS", "messaging", "architecture"]
+}

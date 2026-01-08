@@ -1,0 +1,27 @@
+{
+  "id": "2026-11-sustainability-green-tech",
+  "title": "Sustainability and Green Technology in Building Systems",
+  "startDateTime": "2026-11-17T14:00:00+01:00",
+  "durationMinutes": 90,
+  "summary": "Leveraging technology to achieve sustainability goals in commercial buildings.",
+  "description": "Explore how building automation and smart technologies contribute to sustainability and energy efficiency. Topics include carbon footprint tracking, renewable energy integration, smart HVAC optimization, and compliance with green building standards like LEED and BREEAM.",
+  "speakers": [
+    {
+      "name": "Dr. Klaus Hoffman",
+      "roleOrTitle": "Sustainability Architect",
+      "organization": "Bosch Building Technologies"
+    },
+    {
+      "name": "Maria Santos",
+      "roleOrTitle": "Energy Systems Engineer",
+      "organization": "Bosch Building Technologies"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Green Building Standards",
+      "url": "https://www.usgbc.org/leed"
+    }
+  ],
+  "tags": ["sustainability", "green-tech", "energy-efficiency", "carbon-footprint"]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "2025-12-cloud-edge-computing",
+  "title": "Cloud and Edge Computing Strategies for Commercial Buildings",
+  "startDateTime": "2025-12-10T13:30:00+01:00",
+  "durationMinutes": 120,
+  "summary": "Balancing cloud and edge computing capabilities for optimal building services performance.",
+  "description": "Dive deep into hybrid cloud-edge architectures for commercial building management. Learn about data processing strategies, latency considerations, and security implications when distributing workloads between cloud platforms and on-premises edge devices.",
+  "speakers": [
+    {
+      "name": "Thomas Müller",
+      "roleOrTitle": "Cloud Solutions Architect",
+      "organization": "Bosch Building Technologies"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Edge Computing Overview",
+      "url": "https://www.microsoft.com/en-us/edge"
+    },
+    {
+      "label": "Session Slides",
+      "url": "https://example.com/slides/edge-computing"
+    }
+  ],
+  "tags": ["cloud", "edge-computing", "IoT", "performance"]
+}
