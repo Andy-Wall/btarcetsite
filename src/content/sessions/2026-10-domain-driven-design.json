@@ -1,0 +1,22 @@
+{
+  "id": "2026-10-domain-driven-design",
+  "title": "Domain-Driven Design for Building Automation",
+  "startDateTime": "2026-10-20T13:00:00+02:00",
+  "durationMinutes": 120,
+  "summary": "Applying DDD principles to create maintainable building automation software.",
+  "description": "Discover how Domain-Driven Design principles can help manage complexity in building automation systems. Topics include bounded contexts, ubiquitous language, aggregates, and strategic design patterns. Workshop includes practical exercises modeling building domain concepts.",
+  "speakers": [
+    {
+      "name": "Patricia O'Connor",
+      "roleOrTitle": "Domain Architect",
+      "organization": "Bosch Building Technologies"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Domain-Driven Design",
+      "url": "https://martinfowler.com/bliki/DomainDrivenDesign.html"
+    }
+  ],
+  "tags": ["DDD", "domain-modeling", "software-design", "architecture"]
+}

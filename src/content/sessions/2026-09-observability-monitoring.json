@@ -1,0 +1,22 @@
+{
+  "id": "2026-09-observability-monitoring",
+  "title": "Observability and Monitoring for Distributed Building Systems",
+  "startDateTime": "2026-09-15T14:30:00+02:00",
+  "durationMinutes": 90,
+  "summary": "Implementing comprehensive observability for distributed building automation.",
+  "description": "Master the three pillars of observability: metrics, logs, and traces. Learn how to instrument building automation systems for effective monitoring, troubleshooting, and performance optimization. Practical demos with popular observability tools and platforms.",
+  "speakers": [
+    {
+      "name": "Nina Andersson",
+      "roleOrTitle": "Site Reliability Engineer",
+      "organization": "Bosch Building Technologies"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Observability Engineering",
+      "url": "https://www.honeycomb.io/what-is-observability"
+    }
+  ],
+  "tags": ["observability", "monitoring", "logging", "distributed-systems"]
+}

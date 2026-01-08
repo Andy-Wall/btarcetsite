@@ -1,0 +1,22 @@
+{
+  "id": "2026-01-api-design-best-practices",
+  "title": "RESTful API Design Best Practices",
+  "startDateTime": "2026-01-20T15:00:00+01:00",
+  "durationMinutes": 90,
+  "summary": "Modern API design principles for building management systems.",
+  "description": "Comprehensive overview of RESTful API design including versioning strategies, authentication patterns, error handling, and documentation standards. Focus on APIs for building automation and IoT device integration.",
+  "speakers": [
+    {
+      "name": "Anna Bergström",
+      "roleOrTitle": "API Platform Lead",
+      "organization": "Bosch Building Technologies"
+    }
+  ],
+  "resources": [
+    {
+      "label": "REST API Design Guide",
+      "url": "https://restfulapi.net/"
+    }
+  ],
+  "tags": ["API", "REST", "integration", "best-practices"]
+}

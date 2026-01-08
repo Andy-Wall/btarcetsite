@@ -1,0 +1,27 @@
+{
+  "id": "2026-08-ai-ml-buildings",
+  "title": "AI and Machine Learning Applications in Smart Buildings",
+  "startDateTime": "2026-08-18T15:00:00+02:00",
+  "durationMinutes": 120,
+  "summary": "Practical applications of AI/ML for predictive maintenance and energy optimization.",
+  "description": "Explore real-world applications of artificial intelligence and machine learning in building automation. Topics include predictive maintenance, energy optimization, occupancy prediction, and anomaly detection. Hands-on examples using modern ML frameworks and edge AI deployment.",
+  "speakers": [
+    {
+      "name": "Dr. Yuki Tanaka",
+      "roleOrTitle": "AI Research Lead",
+      "organization": "Bosch Building Technologies"
+    },
+    {
+      "name": "Carlos Rodriguez",
+      "roleOrTitle": "ML Engineer",
+      "organization": "Bosch Building Technologies"
+    }
+  ],
+  "resources": [
+    {
+      "label": "TensorFlow for IoT",
+      "url": "https://www.tensorflow.org/lite"
+    }
+  ],
+  "tags": ["AI", "machine-learning", "predictive-maintenance", "energy-optimization"]
+}

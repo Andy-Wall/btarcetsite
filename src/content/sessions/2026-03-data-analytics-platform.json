@@ -1,0 +1,22 @@
+{
+  "id": "2026-03-data-analytics-platform",
+  "title": "Building a Data Analytics Platform for Smart Buildings",
+  "startDateTime": "2026-03-17T13:00:00+01:00",
+  "durationMinutes": 90,
+  "summary": "Designing scalable data platforms for building performance analytics and insights.",
+  "description": "Learn how to architect a comprehensive data analytics platform for smart buildings. Topics include data ingestion pipelines, time-series databases, real-time analytics, machine learning integration, and visualization strategies for building performance metrics.",
+  "speakers": [
+    {
+      "name": "Rajesh Patel",
+      "roleOrTitle": "Data Platform Architect",
+      "organization": "Bosch Building Technologies"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Time Series Databases",
+      "url": "https://www.influxdata.com/"
+    }
+  ],
+  "tags": ["data-analytics", "machine-learning", "time-series", "smart-buildings"]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "2026-05-containerization-kubernetes",
+  "title": "Containerization and Kubernetes for Building Services",
+  "startDateTime": "2026-05-19T15:00:00+02:00",
+  "durationMinutes": 120,
+  "summary": "Leveraging containerization and orchestration for building automation workloads.",
+  "description": "Deep dive into containerization technologies and Kubernetes orchestration for deploying building automation services. Topics include container design patterns, service mesh, monitoring, and managing stateful workloads for edge deployments.",
+  "speakers": [
+    {
+      "name": "Marcus Weber",
+      "roleOrTitle": "DevOps Architect",
+      "organization": "Bosch Building Technologies"
+    },
+    {
+      "name": "Emma Johnson",
+      "roleOrTitle": "Platform Engineer",
+      "organization": "Bosch Building Technologies"
+    }
+  ],
+  "resources": [
+    {
+      "label": "Kubernetes Documentation",
+      "url": "https://kubernetes.io/docs/"
+    }
+  ],
+  "tags": ["containers", "kubernetes", "DevOps", "orchestration"]
+}

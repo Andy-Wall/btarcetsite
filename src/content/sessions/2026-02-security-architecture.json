@@ -1,0 +1,27 @@
+{
+  "id": "2026-02-security-architecture",
+  "title": "Security Architecture in Connected Buildings",
+  "startDateTime": "2026-02-18T14:00:00+01:00",
+  "durationMinutes": 120,
+  "summary": "Securing building automation systems against modern cyber threats.",
+  "description": "Explore comprehensive security architecture for connected buildings including network segmentation, authentication and authorization patterns, secure device provisioning, and incident response strategies. Real-world case studies and threat modeling exercises included.",
+  "speakers": [
+    {
+      "name": "David Wagner",
+      "roleOrTitle": "Security Architect",
+      "organization": "Bosch Building Technologies"
+    },
+    {
+      "name": "Lisa Martinez",
+      "roleOrTitle": "Cybersecurity Engineer",
+      "organization": "Bosch Building Technologies"
+    }
+  ],
+  "resources": [
+    {
+      "label": "OWASP IoT Security",
+      "url": "https://owasp.org/www-project-internet-of-things/"
+    }
+  ],
+  "tags": ["security", "cybersecurity", "IoT", "threat-modeling"]
+}
