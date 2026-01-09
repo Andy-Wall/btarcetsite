@@ -5,7 +5,7 @@ export default function NotFound() {
     <main id="main-content" className="flex min-h-screen flex-col items-center justify-center p-6 sm:p-12 lg:p-24">
       <div className="container-responsive">
         <div className="max-w-5xl mx-auto text-center">
-          <h1 className="mb-4">
+          <h1 className="text-center mb-8">
             404 - Page Not Found
           </h1>
           
