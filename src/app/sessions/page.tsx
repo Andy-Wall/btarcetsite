@@ -13,14 +13,16 @@ export default function SessionsPage() {
           </h1>
 
           {/* Upcoming Sessions Section */}
-          <section className="mb-12">
-            <h2 className="mb-6">Upcoming</h2>
+          <section className="mb-12" aria-labelledby="upcoming-heading">
+            <h2 id="upcoming-heading" className="mb-6">Upcoming</h2>
             {upcoming.length > 0 ? (
-              <div className="space-y-6">
+              <ul className="space-y-6 list-none">
                 {upcoming.map((session) => (
-                  <SessionCard key={session.id} session={session} />
+                  <li key={session.id}>
+                    <SessionCard session={session} />
+                  </li>
                 ))}
-              </div>
+              </ul>
             ) : (
               <div className="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-md">
                 <p className="text-center text-gray-600 dark:text-gray-300">
@@ -31,14 +33,16 @@ export default function SessionsPage() {
           </section>
 
           {/* History Sessions Section */}
-          <section>
-            <h2 className="mb-6">History</h2>
+          <section aria-labelledby="history-heading">
+            <h2 id="history-heading" className="mb-6">History</h2>
             {history.length > 0 ? (
-              <div className="space-y-6">
+              <ul className="space-y-6 list-none">
                 {history.map((session) => (
-                  <SessionCard key={session.id} session={session} />
+                  <li key={session.id}>
+                    <SessionCard session={session} />
+                  </li>
                 ))}
-              </div>
+              </ul>
             ) : (
               <div className="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-md">
                 <p className="text-center text-gray-600 dark:text-gray-300">
