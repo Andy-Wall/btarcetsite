@@ -6,8 +6,8 @@ A modern, accessible static website for the BTARCET Architecture Team. Built wit
 
 ### Prerequisites
 
-- Node.js 18+ 
-- npm (comes with Node.js)
+- Node.js 18+ (Node 20+ recommended)
+- pnpm 8+ (recommended) or npm
 
 ### Development
 
@@ -19,12 +19,16 @@ A modern, accessible static website for the BTARCET Architecture Team. Built wit
 
 2. Install dependencies:
    ```bash
-   npm install
+   pnpm install
+   # Or with npm:
+   # npm install
    ```
 
 3. Start the development server:
    ```bash
-   npm run dev
+   pnpm dev
+   # Or with npm:
+   # npm run dev
    ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
@@ -34,7 +38,9 @@ A modern, accessible static website for the BTARCET Architecture Team. Built wit
 To create a production-ready static export:
 
 ```bash
-npm run build
+pnpm build
+# Or with npm:
+# npm run build
 ```
 
 This generates an optimized static site in the `out/` directory, ready for deployment.
@@ -60,7 +66,9 @@ The site automatically deploys to GitHub Pages when changes are pushed to the `0
 **Local Build and Deploy:**
 1. Build the static site:
    ```bash
-   npm run build
+   pnpm build
+   # Or with npm:
+   # npm run build
    ```
 
 2. The `out/` directory contains the static site ready for deployment
@@ -91,7 +99,9 @@ out/                  # Static export output (gitignored)
 Run the linter to check code quality:
 
 ```bash
-npm run lint
+pnpm lint
+# Or with npm:
+# npm run lint
 ```
 
 ## Validation
@@ -99,7 +109,9 @@ npm run lint
 Validate session JSON files against the schema:
 
 ```bash
-npm run validate:sessions
+pnpm validate:sessions
+# Or with npm:
+# npm run validate:sessions
 ```
 
 This validates all session files in `src/content/sessions/` against the JSON Schema defined in `specs/001-btarcet-site/contracts/session.schema.json`.
@@ -155,11 +167,11 @@ All form controls must have associated labels:
 All interactive elements must be keyboard accessible:
 
 #### Focus Management
-- [ ] All interactive elements (links, buttons, form controls) are keyboard focusable
-- [ ] Tab order follows logical reading order (left-to-right, top-to-bottom)
-- [ ] Focus indicators are clearly visible (outline or custom styling)
-- [ ] Skip link is the first focusable element, hidden until focused, to bypass navigation ("Skip to main content")
-- [ ] No keyboard traps (users can tab away from all elements)
+- [x] All interactive elements (links, buttons, form controls) are keyboard focusable
+- [x] Tab order follows logical reading order (left-to-right, top-to-bottom)
+- [x] Focus indicators are clearly visible (outline or custom styling)
+- [x] Skip link is the first focusable element, hidden until focused, to bypass navigation ("Skip to main content")
+- [x] No keyboard traps (users can tab away from all elements)
 
 #### Keyboard Shortcuts
 - [ ] **Tab**: Move focus forward through interactive elements
@@ -283,18 +295,19 @@ Run performance audits regularly using these tools:
 npm install -g @lhci/cli
 
 # Run audit on built site
-npm run build
+pnpm build
+# Or: npm run build
 npx lhci autorun --collect.staticDistDir=./out
 ```
 
 #### WebPageTest
 Test from multiple locations and connection speeds:
-1. Build the site: `npm run build`
+1. Build the site: `pnpm build` (or `npm run build`)
 2. Deploy to staging/production
 3. Run test at https://www.webpagetest.org/
 
 #### Chrome DevTools
-1. Build and serve locally: `npm run build && npx serve out`
+1. Build and serve locally: `pnpm build && npx serve out` (or with npm)
 2. Open Chrome DevTools → Lighthouse tab
 3. Run audit with "Desktop" and "Mobile" profiles
 
@@ -309,7 +322,8 @@ We enforce the following performance budget to prevent regression:
 
 Monitor bundle size on every build:
 ```bash
-npm run build
+pnpm build
+# Or: npm run build
 # Check "Route (app)" output for First Load JS per page
 ```
 
@@ -325,7 +339,7 @@ For production deployments, consider implementing:
 
 If performance degrades:
 
-1. **Check Bundle Size**: Run `npm run build` and review the route table
+1. **Check Bundle Size**: Run `pnpm build` (or `npm run build`) and review the route table
 2. **Analyze Dependencies**: Use `@next/bundle-analyzer` to identify large dependencies
 3. **Audit Images**: Ensure all images are optimized and appropriately sized
 4. **Review Code Splitting**: Verify dynamic imports for large components
@@ -335,9 +349,9 @@ If performance degrades:
 
 1. Create a feature branch from `main`
 2. Make your changes
-3. Ensure `npm run build` succeeds
-4. Ensure `npm run lint` passes
-5. Ensure `npm run validate:sessions` passes if you modified session data
+3. Ensure `pnpm build` succeeds (or `npm run build`)
+4. Ensure `pnpm lint` passes (or `npm run lint`)
+5. Ensure `pnpm validate:sessions` passes if you modified session data (or `npm run validate:sessions`)
 6. Submit a pull request
 
 ## License

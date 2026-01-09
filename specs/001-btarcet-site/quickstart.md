@@ -1,20 +1,26 @@
 # Quickstart — BTARCET Site (Next.js Static)
 
 ## Prerequisites
-- Node.js 18+
-- pnpm or npm
+- Node.js 18+ (Node 20+ recommended)
+- pnpm 8+ (recommended) or npm
 
 ## Setup
 ```bash
-pnpm create next-app btarcet-site --ts --src-dir --app --eslint --tailwind
-cd btarcet-site
-# Configure static export
-# next.config.ts: export default { output: 'export', images: { unoptimized: true } }
+# Clone the repository
+git clone https://github.com/Andy-Wall/btarcetsite.git
+cd btarcetsite
+
+# Install dependencies
+pnpm install
+# Or with npm:
+# npm install
 ```
 
 ## Development
 ```bash
 pnpm dev
+# Or with npm:
+# npm run dev
 ```
 - Open http://localhost:3000
 - Pages: Home (/), Sessions (/sessions), About (/about), FAQ (/faq)
@@ -22,17 +28,24 @@ pnpm dev
 ## Build & Export
 ```bash
 pnpm build
-pnpm export  # outputs to out/
+# Or with npm:
+# npm run build
 ```
+- Static site output to `out/` directory
+- The build command automatically generates the static export
 
 ## Deploy (GitHub Pages)
-- Commit `out/` to deployment branch via GitHub Actions (recommended)
-- Or publish manually if needed
+- Automatic deployment via GitHub Actions when pushing to `001-btarcet-site` branch
+- Uses pnpm for CI/CD workflows
+- Or publish `out/` directory manually if needed
 
 ## Content
 - Add session JSON files under `src/content/sessions/`
 - Validate against `specs/001-btarcet-site/contracts/session.schema.json`
+- Run validation: `pnpm validate:sessions` (or `npm run validate:sessions`)
 
 ## Notes
-- `images.unoptimized: true` is required for static hosting
-- Basic CSP should be added to `<head>` to align with the constitution
+- `images.unoptimized: true` is required for static hosting in `next.config.ts`
+- CSP (Content Security Policy) is configured in `src/app/layout.tsx`
+- Skip link implemented for accessibility (hidden until focused)
+- Project uses pnpm in CI/CD; both pnpm and npm work locally
