@@ -11,7 +11,7 @@ export default function AboutPage() {
             {/* Purpose Section */}
             <section aria-labelledby="purpose-heading">
               <div className="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-md">
-                <h2 id="purpose-heading" className="mb-4">Our Purpose</h2>
+                <h2 id="purpose-heading" className="text-2xl font-semibold mb-4">Our Purpose</h2>
                 <p className="mb-4 text-gray-700 dark:text-gray-300">
                   The Bosch Building Technologies Architecture Engineering Team (BTARCET) is dedicated to advancing 
                   the architectural excellence of software, systems, solutions, and cloud services for commercial 
@@ -27,7 +27,7 @@ export default function AboutPage() {
             {/* Scope Section */}
             <section aria-labelledby="scope-heading">
               <div className="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-md">
-                <h2 id="scope-heading" className="mb-4">Our Scope</h2>
+                <h2 id="scope-heading" className="text-2xl font-semibold mb-4">Our Scope</h2>
                 <p className="mb-4 text-gray-700 dark:text-gray-300">
                   BTARCET focuses on the complete technology stack for Bosch Building Technologies, encompassing:
                 </p>
@@ -46,7 +46,7 @@ export default function AboutPage() {
             {/* Practices Section */}
             <section aria-labelledby="practices-heading">
               <div className="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-md">
-                <h2 id="practices-heading" className="mb-4">Our Practices</h2>
+                <h2 id="practices-heading" className="text-2xl font-semibold mb-4">Our Practices</h2>
                 <p className="mb-4 text-gray-700 dark:text-gray-300">
                   We maintain architectural excellence through a structured approach to knowledge sharing and 
                   collaborative decision-making:
