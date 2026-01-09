@@ -2,11 +2,20 @@
 
 /**
  * Run automated accessibility checks using axe-core on all pages
+ * 
  * Usage: node scripts/check-a11y.js
+ * 
+ * Environment variables:
+ *   BASE_URL - Base URL for the site (default: http://localhost:3000)
+ *              Example: BASE_URL=http://localhost:3001 node scripts/check-a11y.js
  */
 
 const { chromium } = require('playwright');
 const AxeBuilder = require('@axe-core/playwright').default;
+
+// Configuration
+const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
+const HTML_TRUNCATE_LENGTH = 100;
 
 // Pages to test
 const PAGES = [
@@ -16,9 +25,6 @@ const PAGES = [
   { path: '/about', name: 'About' },
   { path: '/faq', name: 'FAQ' }
 ];
-
-// Base URL for the dev server
-const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
 
 async function runAccessibilityChecks() {
   console.log('Starting automated accessibility checks...\n');
@@ -40,8 +46,10 @@ async function runAccessibilityChecks() {
       // Navigate to the page
       await page.goto(url, { waitUntil: 'networkidle' });
       
-      // Run accessibility checks using AxeBuilder
-      const axeResults = await new AxeBuilder({ page }).analyze();
+      // Run accessibility checks using AxeBuilder with WCAG 2.1 Level AA tags
+      const axeResults = await new AxeBuilder({ page })
+        .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
+        .analyze();
       const violations = axeResults.violations;
       
       if (violations.length === 0) {
@@ -60,7 +68,7 @@ async function runAccessibilityChecks() {
           
           // Print first few affected elements
           violation.nodes.slice(0, 3).forEach((node, nodeIndex) => {
-            console.log(`       - ${node.html.substring(0, 100)}${node.html.length > 100 ? '...' : ''}`);
+            console.log(`       - ${node.html.substring(0, HTML_TRUNCATE_LENGTH)}${node.html.length > HTML_TRUNCATE_LENGTH ? '...' : ''}`);
           });
         });
         
