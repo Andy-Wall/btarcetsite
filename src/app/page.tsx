@@ -1,4 +1,5 @@
 import { getNextSession } from '../lib/sessions';
+import SessionCard from '../components/SessionCard';
 
 export default function Home() {
   const nextSession = getNextSession();
@@ -15,35 +16,9 @@ export default function Home() {
           </p>
           
           {nextSession ? (
-            <div className="mt-8 p-6 bg-white dark:bg-slate-800 rounded-lg shadow-md">
+            <div className="mt-8">
               <h2 className="text-2xl mb-4">Next Upcoming Session</h2>
-              <h3 className="text-xl font-semibold mb-2">{nextSession.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-2">
-                {new Date(nextSession.startDateTime).toLocaleDateString('en-US', {
-                  weekday: 'long',
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                  hour: '2-digit',
-                  minute: '2-digit',
-                  timeZoneName: 'short'
-                })}
-              </p>
-              {nextSession.summary && (
-                <p className="text-gray-700 dark:text-gray-200 mb-4">{nextSession.summary}</p>
-              )}
-              {nextSession.speakers && nextSession.speakers.length > 0 && (
-                <div className="mb-2">
-                  <span className="font-semibold">Speaker(s): </span>
-                  {nextSession.speakers.map((speaker, index) => (
-                    <span key={index}>
-                      {speaker.name}
-                      {speaker.roleOrTitle && ` (${speaker.roleOrTitle})`}
-                      {index < nextSession.speakers.length - 1 ? ', ' : ''}
-                    </span>
-                  ))}
-                </div>
-              )}
+              <SessionCard session={nextSession} />
             </div>
           ) : (
             <div className="mt-8 p-6 bg-white dark:bg-slate-800 rounded-lg shadow-md">
