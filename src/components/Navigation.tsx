@@ -1,0 +1,48 @@
+'use client';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+export default function Navigation() {
+  const pathname = usePathname();
+
+  const navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/sessions', label: 'Sessions' },
+    { href: '/about', label: 'About' },
+    { href: '/faq', label: 'FAQ' },
+  ];
+
+  return (
+    <nav aria-label="Main navigation" className="bg-white dark:bg-slate-800 shadow-md">
+      <div className="container-responsive">
+        <ul className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 py-4 list-none">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href || (link.href !== '/' && pathname?.startsWith(link.href));
+            
+            return (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={`
+                    inline-block px-4 py-2 rounded-md text-base font-medium transition-colors
+                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+                    dark:focus:ring-offset-slate-800
+                    ${
+                      isActive
+                        ? 'bg-blue-600 text-white dark:bg-blue-500'
+                        : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-700'
+                    }
+                  `}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </nav>
+  );
+}
