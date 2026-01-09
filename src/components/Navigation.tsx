@@ -18,7 +18,10 @@ export default function Navigation() {
       <div className="container-responsive">
         <ul className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 py-4 list-none">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href || (link.href !== '/' && pathname?.startsWith(link.href));
+            // For home page, use exact match. For other pages, match if pathname starts with the href followed by / or is exact
+            const isActive = link.href === '/' 
+              ? pathname === '/' 
+              : pathname === link.href || pathname?.startsWith(link.href + '/');
             
             return (
               <li key={link.href}>
