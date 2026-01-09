@@ -45,12 +45,25 @@ The site is a static export that can be deployed to any static hosting service:
 
 ### GitHub Pages
 
+The site automatically deploys to GitHub Pages when changes are pushed to the `001-btarcet-site` branch.
+
+**Automatic Deployment:**
+- Push to `001-btarcet-site` branch triggers the deployment workflow
+- The workflow builds the static site and deploys the `out/` directory to GitHub Pages
+- View the live site at your GitHub Pages URL
+
+**Manual Deployment:**
+- Navigate to the Actions tab in your repository
+- Select the "Deploy to GitHub Pages" workflow
+- Click "Run workflow" to manually trigger a deployment
+
+**Local Build and Deploy:**
 1. Build the static site:
    ```bash
    npm run build
    ```
 
-2. Deploy the contents of the `out/` directory to your hosting provider.
+2. The `out/` directory contains the static site ready for deployment
 
 ### Other Static Hosts
 
