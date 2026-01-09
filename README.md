@@ -116,6 +116,26 @@ pnpm validate:sessions
 
 This validates all session files in `src/content/sessions/` against the JSON Schema defined in `specs/001-btarcet-site/contracts/session.schema.json`.
 
+## Accessibility Testing
+
+Run automated accessibility checks on all pages:
+
+```bash
+pnpm check:a11y
+# Or with npm:
+# npm run check:a11y
+```
+
+This runs axe-core accessibility checks on the following pages:
+- Home (`/`)
+- Sessions (`/sessions`)
+- Session Detail (`/sessions/[id]`)
+- About (`/about`)
+- FAQ (`/faq`)
+
+The checks verify WCAG 2.1 Level AA compliance. The dev server must be running (`pnpm dev` or `npm run dev`) before running the accessibility checks.
+
+
 ## Technology Stack
 
 - **Framework**: Next.js 14+ (static export mode)
@@ -190,7 +210,7 @@ All interactive elements must be keyboard accessible:
 #### Testing
 - [ ] Test all pages with keyboard only (unplug mouse)
 - [ ] Test with screen readers (NVDA, JAWS, VoiceOver)
-- [ ] Run automated accessibility checks (Lighthouse, axe DevTools)
+- [x] Run automated accessibility checks (Lighthouse, axe DevTools) - use `pnpm check:a11y`
 - [ ] Verify color contrast ratios meet WCAG AA standards (4.5:1 for normal text, 3:1 for large text)
 
 ### Browser Support
