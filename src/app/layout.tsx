@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import '../styles/globals.css';
+import Navigation from '../components/Navigation';
 
 export const metadata: Metadata = {
   title: 'BTARCET Architecture Team Site',
@@ -29,6 +30,7 @@ export default function RootLayout({
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded">
           Skip to main content
         </a>
+        <Navigation />
         {children}
       </body>
     </html>
