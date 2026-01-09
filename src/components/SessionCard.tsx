@@ -7,7 +7,7 @@ interface SessionCardProps {
 
 export default function SessionCard({ session }: SessionCardProps) {
   return (
-    <Link href={`/sessions/${session.id}`} className="block p-6 bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+    <Link href={`/sessions/${session.id}`} className="block p-6 bg-white dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-shadow focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800">
       <h3 className="text-xl font-semibold mb-2 text-blue-600 dark:text-blue-400">{session.title}</h3>
       <p className="text-gray-600 dark:text-gray-300 mb-2">
         {new Date(session.startDateTime).toLocaleDateString('en-US', {

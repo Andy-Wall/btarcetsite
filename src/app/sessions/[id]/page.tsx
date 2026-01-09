@@ -120,7 +120,7 @@ export default function SessionDetailPage({ params }: SessionDetailPageProps) {
                       href={resource.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 dark:text-blue-400 hover:underline"
+                      className="text-blue-600 dark:text-blue-400 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800 rounded px-1"
                     >
                       {resource.label}
                     </a>
