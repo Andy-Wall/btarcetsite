@@ -174,6 +174,150 @@ All interactive elements must be keyboard accessible:
 - Responsive design tested on mobile, tablet, and desktop viewports
 - Graceful degradation for older browsers
 
+## Performance
+
+This site is optimized for fast loading and excellent user experience. We follow performance best practices and continuously monitor Core Web Vitals.
+
+### Performance Goals
+
+Our target metrics align with Google's Core Web Vitals and industry best practices for static sites:
+
+| Metric | Target | Description |
+|--------|--------|-------------|
+| **LCP (Largest Contentful Paint)** | < 2.5s | Main content visible quickly |
+| **FID (First Input Delay)** | < 100ms | Interactive immediately |
+| **CLS (Cumulative Layout Shift)** | < 0.1 | Stable visual layout |
+| **FCP (First Contentful Paint)** | < 1.8s | Initial content renders fast |
+| **TTI (Time to Interactive)** | < 3.5s | Fully interactive quickly |
+| **Total Bundle Size** | < 200KB (gzipped) | Fast downloads on slow networks |
+| **Page Load Time** | < 3s (3G) | Works on mobile networks |
+
+### Current Performance Metrics
+
+Based on the latest production build:
+
+- **Total Build Size**: ~1.4 MB (uncompressed)
+  - HTML: ~294 KB across all pages
+  - JavaScript: ~684 KB (includes React, Next.js framework)
+  - CSS: ~15 KB (Tailwind CSS, purged)
+- **First Load JS**: ~87.4 KB (shared across pages)
+- **Largest Page**: `/sessions` at 96.2 KB First Load JS
+
+### Performance Optimization Strategies
+
+#### 1. Code Splitting
+- Next.js automatically code-splits by route
+- Each page loads only the JavaScript it needs
+- Shared chunks are cached across page navigations
+
+#### 2. Static Generation
+- All pages pre-rendered at build time (`output: 'export'`)
+- Zero server-side processing overhead
+- Can be served from CDN for global performance
+
+#### 3. CSS Optimization
+- Tailwind CSS with production purge enabled
+- Unused styles removed automatically
+- Critical CSS inlined for faster FCP
+
+#### 4. Image Optimization
+
+**Current Status**: No images in the project yet.
+
+**When adding images**, follow these guidelines:
+
+- **Use Next.js Image Component**: Even with `unoptimized: true`, it provides layout stability and lazy loading
+- **Pre-optimize Images**: Since static export mode disables automatic optimization, manually optimize images before adding them:
+  - Compress with tools like Squoosh, ImageOptim, or TinyPNG
+  - Use WebP format for photos (best compression)
+  - Use SVG for logos and icons (scalable, small file size)
+  - Target < 100KB per image
+- **Responsive Images**: Provide appropriate sizes for different screen resolutions
+- **Lazy Loading**: Images below the fold load only when needed
+- **Alt Text**: Always include meaningful alt text for accessibility
+
+Example usage:
+```tsx
+import Image from 'next/image';
+
+<Image
+  src="/images/team-photo.webp"
+  alt="BTARCET Architecture Team at annual conference"
+  width={800}
+  height={600}
+  loading="lazy"
+/>
+```
+
+See `public/images/README.md` for detailed image optimization guidelines.
+
+#### 5. Font Optimization
+- System fonts used by default (no web font loading)
+- Future web fonts should use `next/font` for automatic optimization
+
+#### 6. Asset Caching
+- Static assets include content hashes in filenames
+- Enables aggressive caching (immutable, long max-age)
+- Changes result in new filenames, automatic cache busting
+
+### Performance Testing
+
+Run performance audits regularly using these tools:
+
+#### Lighthouse CI
+```bash
+# Install Lighthouse CI
+npm install -g @lhci/cli
+
+# Run audit on built site
+npm run build
+npx lhci autorun --collect.staticDistDir=./out
+```
+
+#### WebPageTest
+Test from multiple locations and connection speeds:
+1. Build the site: `npm run build`
+2. Deploy to staging/production
+3. Run test at https://www.webpagetest.org/
+
+#### Chrome DevTools
+1. Build and serve locally: `npm run build && npx serve out`
+2. Open Chrome DevTools → Lighthouse tab
+3. Run audit with "Desktop" and "Mobile" profiles
+
+### Performance Budget
+
+We enforce the following performance budget to prevent regression:
+
+- **JavaScript Budget**: 200 KB (gzipped) per page
+- **CSS Budget**: 50 KB (gzipped) total
+- **Image Budget**: 500 KB (compressed) per page
+- **Total Page Weight**: 1 MB (uncompressed) per page
+
+Monitor bundle size on every build:
+```bash
+npm run build
+# Check "Route (app)" output for First Load JS per page
+```
+
+### Performance Monitoring
+
+For production deployments, consider implementing:
+
+- **Real User Monitoring (RUM)**: Track actual user experience metrics
+- **Synthetic Monitoring**: Automated performance tests from multiple locations
+- **Core Web Vitals Tracking**: Monitor LCP, FID, CLS in production
+
+### Troubleshooting Slow Performance
+
+If performance degrades:
+
+1. **Check Bundle Size**: Run `npm run build` and review the route table
+2. **Analyze Dependencies**: Use `@next/bundle-analyzer` to identify large dependencies
+3. **Audit Images**: Ensure all images are optimized and appropriately sized
+4. **Review Code Splitting**: Verify dynamic imports for large components
+5. **Test Network Conditions**: Simulate 3G/4G speeds in Chrome DevTools
+
 ## Contributing
 
 1. Create a feature branch from `main`
