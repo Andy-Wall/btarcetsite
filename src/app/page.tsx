@@ -18,7 +18,7 @@ export default function Home() {
           
           {nextSession ? (
             <div className="mt-8">
-              <h2 className="text-2xl mb-4">Next Upcoming Session</h2>
+              <h2 className="mb-4">Next Upcoming Session</h2>
               <SessionCard session={nextSession} />
             </div>
           ) : (
