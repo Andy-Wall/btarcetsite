@@ -21,10 +21,12 @@ export default function SessionList({
   }
 
   return (
-    <div className={`space-y-4 ${className}`}>
+    <ul className={`space-y-4 list-none ${className}`}>
       {sessions.map((session) => (
-        <SessionCard key={session.id} session={session} />
+        <li key={session.id}>
+          <SessionCard session={session} />
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
