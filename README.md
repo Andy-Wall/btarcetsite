@@ -135,6 +135,37 @@ This runs axe-core accessibility checks on the following pages:
 
 The checks verify WCAG 2.1 Level AA compliance. The dev server must be running (`pnpm dev` or `npm run dev`) before running the accessibility checks.
 
+## Smoke Tests
+
+Run Playwright smoke tests to verify core functionality:
+
+```bash
+pnpm test
+# Or with npm:
+# npm run test
+```
+
+The smoke tests verify:
+- **Home page next session**: Displays the next upcoming session or appropriate message
+- **Sessions page partition**: Correctly separates upcoming and history sessions
+- **Sessions page sorting**: Upcoming sessions sorted earliest first, history sessions sorted most recent first
+- **Detail navigation**: Session cards navigate to detail pages correctly
+- **Detail page content**: Session detail pages display complete information
+
+The Playwright tests automatically start the dev server, run the tests, and shut down the server. For debugging:
+
+```bash
+# Run tests with UI mode
+pnpm test:ui
+# Or with npm:
+# npm run test:ui
+
+# Run tests in debug mode
+pnpm test:debug
+# Or with npm:
+# npm run test:debug
+```
+
 
 ## Technology Stack
 
@@ -372,7 +403,8 @@ If performance degrades:
 3. Ensure `pnpm build` succeeds (or `npm run build`)
 4. Ensure `pnpm lint` passes (or `npm run lint`)
 5. Ensure `pnpm validate:sessions` passes if you modified session data (or `npm run validate:sessions`)
-6. Submit a pull request
+6. Ensure `pnpm test` passes (or `npm run test`)
+7. Submit a pull request
 
 ## License
 
