@@ -9,11 +9,6 @@ import type { NextConfig } from 'next';
  * 
  * @see https://nextjs.org/docs/app/building-your-application/deploying/static-exports
  */
-
-// Determine if we're building for GitHub Pages (project site)
-const isGitHubPages = process.env.GITHUB_PAGES === 'true';
-const basePath = isGitHubPages ? '/btarcetsite' : '';
-
 const nextConfig: NextConfig = {
   /**
    * Output Mode: Static Export
@@ -28,23 +23,6 @@ const nextConfig: NextConfig = {
    * - API routes
    */
   output: 'export',
-
-  /**
-   * Base Path: GitHub Pages subdirectory (when GITHUB_PAGES=true)
-   * 
-   * GitHub Pages serves repositories at /<repo-name> unless it's a user/org site.
-   * Since this is a project site (Andy-Wall/btarcetsite), we set basePath when
-   * building for GitHub Pages.
-   */
-  ...(basePath && { basePath }),
-
-  /**
-   * Asset Prefix: Required for static export with basePath
-   * 
-   * When using static export with basePath, we also need to set assetPrefix
-   * to ensure all assets (CSS, JS) are loaded from the correct path.
-   */
-  ...(basePath && { assetPrefix: basePath }),
 
   /**
    * Trailing Slash: Required for GitHub Pages
