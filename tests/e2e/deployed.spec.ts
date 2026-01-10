@@ -11,7 +11,10 @@ const MAX_ACCEPTABLE_LOAD_TIME_MS = 5000; // Maximum acceptable page load time i
 
 test.describe('GitHub Pages Deployment - Basic Functionality', () => {
   test('home page loads successfully', async ({ page }) => {
-    await page.goto('/');
+    const response = await page.goto('/', { waitUntil: 'networkidle' });
+    
+    // Verify response is successful
+    expect(response?.status()).toBe(200);
     
     // Verify page loaded and title is correct
     await expect(page).toHaveTitle(/BTARCET/i);
@@ -30,7 +33,10 @@ test.describe('GitHub Pages Deployment - Basic Functionality', () => {
   });
 
   test('sessions page loads successfully', async ({ page }) => {
-    await page.goto('/sessions');
+    const response = await page.goto('/sessions', { waitUntil: 'networkidle' });
+    
+    // Verify response is successful
+    expect(response?.status()).toBe(200);
     
     // Verify page loaded
     await expect(page).toHaveTitle(/Sessions.*BTARCET/i);
@@ -44,7 +50,10 @@ test.describe('GitHub Pages Deployment - Basic Functionality', () => {
   });
 
   test('about page loads successfully', async ({ page }) => {
-    await page.goto('/about');
+    const response = await page.goto('/about', { waitUntil: 'networkidle' });
+    
+    // Verify response is successful
+    expect(response?.status()).toBe(200);
     
     // Verify page loaded
     await expect(page).toHaveTitle(/About.*BTARCET/i);
@@ -54,7 +63,10 @@ test.describe('GitHub Pages Deployment - Basic Functionality', () => {
   });
 
   test('faq page loads successfully', async ({ page }) => {
-    await page.goto('/faq');
+    const response = await page.goto('/faq', { waitUntil: 'networkidle' });
+    
+    // Verify response is successful
+    expect(response?.status()).toBe(200);
     
     // Verify page loaded
     await expect(page).toHaveTitle(/FAQ.*BTARCET/i);
@@ -64,7 +76,7 @@ test.describe('GitHub Pages Deployment - Basic Functionality', () => {
   });
 
   test('404 page works for invalid routes', async ({ page }) => {
-    const response = await page.goto('/this-page-does-not-exist');
+    const response = await page.goto('/this-page-does-not-exist', { waitUntil: 'networkidle' });
     
     // GitHub Pages should serve 404.html for invalid routes
     // The status might be 200 because GitHub Pages serves 404.html with 200 status
@@ -75,7 +87,7 @@ test.describe('GitHub Pages Deployment - Basic Functionality', () => {
 test.describe('GitHub Pages Deployment - Navigation', () => {
   test('navigation between pages works', async ({ page }) => {
     // Start at home
-    await page.goto('/');
+    await page.goto('/', { waitUntil: 'networkidle' });
     
     // Navigate to sessions
     await page.getByRole('link', { name: /sessions/i }).first().click();
@@ -99,7 +111,7 @@ test.describe('GitHub Pages Deployment - Navigation', () => {
   });
 
   test('session detail page navigation works', async ({ page }) => {
-    await page.goto('/sessions');
+    await page.goto('/sessions', { waitUntil: 'networkidle' });
     
     // Find and click first session card if it exists
     const sessionCard = page.locator('a[href^="/btarcetsite/sessions/"]').first();
@@ -124,7 +136,7 @@ test.describe('GitHub Pages Deployment - Navigation', () => {
 
 test.describe('GitHub Pages Deployment - Static Assets', () => {
   test('CSS is loaded correctly', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/', { waitUntil: 'networkidle' });
     
     // Check that Tailwind CSS is applied by verifying computed styles
     const header = page.locator('h1').first();
@@ -141,7 +153,7 @@ test.describe('GitHub Pages Deployment - Static Assets', () => {
   });
 
   test('JavaScript is working', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/', { waitUntil: 'networkidle' });
     
     // Verify Next.js hydration works by checking for interactive elements
     // Navigation should be clickable and work
@@ -158,7 +170,7 @@ test.describe('GitHub Pages Deployment - Performance', () => {
   test('pages load in reasonable time', async ({ page }) => {
     const startTime = Date.now();
     
-    await page.goto('/');
+    await page.goto('/', { waitUntil: 'networkidle' });
     await page.waitForLoadState('networkidle');
     
     const loadTime = Date.now() - startTime;
@@ -169,11 +181,11 @@ test.describe('GitHub Pages Deployment - Performance', () => {
 
   test('static assets are cacheable', async ({ page }) => {
     // First load
-    const response1 = await page.goto('/');
+    const response1 = await page.goto('/', { waitUntil: 'networkidle' });
     expect(response1?.status()).toBe(200);
     
     // Second load - should use cache
-    const response2 = await page.goto('/');
+    const response2 = await page.goto('/', { waitUntil: 'networkidle' });
     expect(response2?.status()).toBe(200);
     
     // Both should succeed (cache headers are set by GitHub Pages)
@@ -182,7 +194,7 @@ test.describe('GitHub Pages Deployment - Performance', () => {
 
 test.describe('GitHub Pages Deployment - Accessibility', () => {
   test('pages have proper document structure', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/', { waitUntil: 'networkidle' });
     
     // Should have proper HTML structure
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
@@ -199,7 +211,7 @@ test.describe('GitHub Pages Deployment - Accessibility', () => {
   });
 
   test('skip link is present and functional', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/', { waitUntil: 'networkidle' });
     
     // Skip link should be the first focusable element
     await page.keyboard.press('Tab');
