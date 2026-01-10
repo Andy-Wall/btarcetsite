@@ -288,13 +288,13 @@ Measured on static export (`out/` directory) using Lighthouse CI:
 **Desktop Performance** (3 runs per page, averaged):
 - **Performance Score**: 100/100 ✅
 - **LCP (Largest Contentful Paint)**: 0.44s ✅ (Target: < 2.5s)
-- **FCP (First Contentful Paint)**: 0.21s ✅ (Target: < 1.8s)
+- **FCP (First Contentful Paint)**: 0.21s ✅ (Target: < 2.0s)
 - **TTI (Time to Interactive)**: 0.44s ✅ (Target: < 3.5s)
 
 **Mobile Performance** (3 runs per page, averaged):
 - **Performance Score**: 100/100 ✅
 - **LCP (Largest Contentful Paint)**: 1.71s ✅ (Target: < 2.5s)
-- **FCP (First Contentful Paint)**: 0.76s ✅ (Target: < 1.8s)
+- **FCP (First Contentful Paint)**: 0.76s ✅ (Target: < 2.0s)
 - **TTI (Time to Interactive)**: 1.72s ✅ (Target: < 3.5s)
 
 All pages tested: Home (`/`), Sessions (`/sessions`), About (`/about`), FAQ (`/faq`), 404
