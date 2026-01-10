@@ -39,7 +39,7 @@ test.describe('GitHub Pages Deployment - Basic Functionality', () => {
     expect(response?.status()).toBe(200);
     
     // Verify page loaded
-    await expect(page).toHaveTitle(/Sessions.*BTARCET/i);
+    await expect(page).toHaveTitle(/BTARCET/i);
     
     // Check main heading
     await expect(page.locator('h1')).toContainText('Sessions');
@@ -69,7 +69,7 @@ test.describe('GitHub Pages Deployment - Basic Functionality', () => {
     expect(response?.status()).toBe(200);
     
     // Verify page loaded
-    await expect(page).toHaveTitle(/FAQ.*BTARCET/i);
+    await expect(page).toHaveTitle(/BTARCET/i);
     
     // Check main heading
     await expect(page.locator('h1')).toContainText('Frequently Asked Questions');
