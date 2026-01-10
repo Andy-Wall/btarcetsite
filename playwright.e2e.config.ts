@@ -53,6 +53,7 @@ export default defineConfig({
     },
   ],
 
-  // No web server needed - we test the deployed site
-  timeout: 60000, // 60 seconds per test for network requests
+  // Test timeout for network requests to deployed site
+  // 60 seconds per test to account for network latency
+  timeout: 60000,
 });
