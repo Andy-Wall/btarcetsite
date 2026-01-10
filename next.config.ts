@@ -44,7 +44,7 @@ const nextConfig: NextConfig = {
    * 
    * GitHub Pages expects URLs to end with a trailing slash for directory routes.
    */
-  trailingSlash: true,
+  trailingSlash: false,
 
   /**
    * Image Optimization: Disabled
