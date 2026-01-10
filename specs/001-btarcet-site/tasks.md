@@ -22,11 +22,11 @@ description: "Task list for BTARCET static site implementation"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Initialize Next.js project with TypeScript and Tailwind in repo root
-- [ ] T002 Configure `next.config.ts` with `output: 'export'` and `images.unoptimized: true`
-- [ ] T003 [P] Add base files: `.editorconfig`, `.gitignore` (exclude `node_modules/`, `out/`), `README.md`
-- [ ] T004 [P] Set up global layout and theme in `src/app/(site)/layout.tsx` and `src/styles/globals.css`
-- [ ] T005 Configure GitHub Actions workflow to build and export static site (artifact from `out/`)
+- [x] T001 Initialize Next.js project with TypeScript and Tailwind in repo root
+- [x] T002 Configure `next.config.ts` with `output: 'export'` and `images.unoptimized: true`
+- [x] T003 [P] Add base files: `.editorconfig`, `.gitignore` (exclude `node_modules/`, `out/`), `README.md`
+- [x] T004 [P] Set up global layout and theme in `src/app/(site)/layout.tsx` and `src/styles/globals.css`
+- [x] T005 Configure GitHub Actions workflow to build and export static site (artifact from `out/`)
 
 ---
 
@@ -36,11 +36,11 @@ description: "Task list for BTARCET static site implementation"
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T006 Create mock data folder `src/content/sessions/` and seed JSON for 12 sessions
-- [ ] T007 [P] Validate mock data against `specs/001-btarcet-site/contracts/session.schema.json`
-- [ ] T008 [P] Implement data loader utilities in `src/lib/sessions.ts` (read JSON, partition upcoming/history, sort)
-- [ ] T009 Add basic CSP meta tags in `src/app/(site)/head.tsx`
-- [ ] T010 Ensure a11y baseline (semantic headings, alt text, keyboard focus) documented in `README.md`
+- [x] T006 Create mock data folder `src/content/sessions/` and seed JSON for 12 sessions
+- [x] T007 [P] Validate mock data against `specs/001-btarcet-site/contracts/session.schema.json`
+- [x] T008 [P] Implement data loader utilities in `src/lib/sessions.ts` (read JSON, partition upcoming/history, sort)
+- [x] T009 Add basic CSP meta tags in `src/app/(site)/head.tsx`
+- [x] T010 Ensure a11y baseline (semantic headings, alt text, keyboard focus) documented in `README.md`
 
 **Checkpoint**: Foundation ready — user story implementation can now begin in parallel
 
@@ -54,10 +54,10 @@ description: "Task list for BTARCET static site implementation"
 
 ### Implementation for User Story 1
 
-- [ ] T011 [P] [US1] Create Home page `src/app/page.tsx` rendering next upcoming session
-- [ ] T012 [P] [US1] Build `SessionCard` component in `src/components/SessionCard.tsx`
-- [ ] T013 [US1] Wire data loader to Home; fallback message if no upcoming sessions
-- [ ] T014 [US1] Add responsive styles and a11y checks (headings, alt text)
+- [x] T011 [P] [US1] Create Home page `src/app/page.tsx` rendering next upcoming session
+- [x] T012 [P] [US1] Build `SessionCard` component in `src/components/SessionCard.tsx`
+- [x] T013 [US1] Wire data loader to Home; fallback message if no upcoming sessions
+- [x] T014 [US1] Add responsive styles and a11y checks (headings, alt text)
 
 **Checkpoint**: User Story 1 functional and testable independently
 
@@ -71,11 +71,11 @@ description: "Task list for BTARCET static site implementation"
 
 ### Implementation for User Story 2
 
-- [ ] T015 [P] [US2] Create Sessions page `src/app/sessions/page.tsx` with two sections
-- [ ] T016 [P] [US2] Build `SessionList` component in `src/components/SessionList.tsx`
-- [ ] T017 [US2] Implement static params generation for `/sessions/[id]/page.tsx`
-- [ ] T018 [US2] Create Session Detail page `src/app/sessions/[id]/page.tsx` with title, date/time, description, speakers, resources
-- [ ] T019 [US2] Ensure lists sort correctly and are accessible (section headings, list semantics)
+- [x] T015 [P] [US2] Create Sessions page `src/app/sessions/page.tsx` with two sections
+- [x] T016 [P] [US2] Build `SessionList` component in `src/components/SessionList.tsx`
+- [x] T017 [US2] Implement static params generation for `/sessions/[id]/page.tsx`
+- [x] T018 [US2] Create Session Detail page `src/app/sessions/[id]/page.tsx` with title, date/time, description, speakers, resources
+- [x] T019 [US2] Ensure lists sort correctly and are accessible (section headings, list semantics)
 
 **Checkpoint**: User Stories 1 AND 2 work independently
 
@@ -89,9 +89,9 @@ description: "Task list for BTARCET static site implementation"
 
 ### Implementation for User Story 3
 
-- [ ] T020 [P] [US3] Create About page at `src/app/about/page.tsx`
-- [ ] T021 [P] [US3] Create FAQ page at `src/app/faq/page.tsx`
-- [ ] T022 [US3] Add global navigation links to Home, Sessions, About, FAQ in `src/app/(site)/layout.tsx`
+- [x] T020 [P] [US3] Create About page at `src/app/about/page.tsx`
+- [x] T021 [P] [US3] Create FAQ page at `src/app/faq/page.tsx`
+- [x] T022 [US3] Add global navigation links to Home, Sessions, About, FAQ in `src/app/(site)/layout.tsx`
 
 **Checkpoint**: All user stories now independently functional
 
@@ -101,14 +101,15 @@ description: "Task list for BTARCET static site implementation"
 
 **Purpose**: Improvements affecting multiple stories
 
-- [ ] T023 [P] Add 404 page `src/app/not-found.tsx` with helpful links
-- [ ] T024 Optimize images and verify performance goals (LCP/FCP) documented in `README.md`
-- [ ] T025 [P] Add GitHub Actions deployment to GitHub Pages from `out/`
-- [ ] T026 Security hardening review (HTTPS-only links, no secrets) per constitution
-- [ ] T027 Documentation updates for quickstart and a11y checklist
- - [ ] T028 [P] A11y automated checks (axe/Lighthouse) for `/`, `/sessions`, `/sessions/[id]`, `/about`, `/faq`
- - [ ] T029 [P] Playwright smoke tests: Home next session visible; Sessions partition + sort; details navigation
- - [ ] T030 Measure performance (LCP/FCP) on static export via Lighthouse CI; capture results in `README.md`
+- [x] T023 [P] Add 404 page `src/app/not-found.tsx` with helpful links
+- [x] T024 Optimize images and verify performance goals (LCP/FCP) documented in `README.md`
+- [x] T025 [P] Add GitHub Actions deployment to GitHub Pages from `out/`
+- [x] T026 Security hardening review (HTTPS-only links, no secrets) per constitution
+- [x] T027 Documentation updates for quickstart and a11y checklist
+- [x] T028 [P] A11y automated checks (axe/Lighthouse) for `/`, `/sessions`, `/sessions/[id]`, `/about`, `/faq`
+- [x] T029 [P] Playwright smoke tests: Home next session visible; Sessions partition + sort; details navigation
+- [x] T030 Measure performance (LCP/FCP) on static export via Lighthouse CI; capture results in `README.md`
+- [x] T031 Perform end to end tests on the deployed GitHub Pages and add instructions how to navigate to the BTARCET Site in `README.md`
 
 ---
 
