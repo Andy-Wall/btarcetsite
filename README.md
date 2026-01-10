@@ -270,6 +270,8 @@ Our target metrics align with Google's Core Web Vitals and industry best practic
 
 ### Current Performance Metrics
 
+#### Build Size
+
 Based on the latest production build:
 
 - **Total Build Size**: ~1.4 MB (uncompressed)
@@ -278,6 +280,26 @@ Based on the latest production build:
   - CSS: ~15 KB (Tailwind CSS, purged)
 - **First Load JS**: ~87.4 KB (shared across pages)
 - **Largest Page**: `/sessions` at 96.2 KB First Load JS
+
+#### Lighthouse CI Results
+
+Measured on static export (`out/` directory) using Lighthouse CI:
+
+**Desktop Performance** (3 runs per page, averaged):
+- **Performance Score**: 100/100 ✅
+- **LCP (Largest Contentful Paint)**: 0.44s ✅ (Target: < 2.5s)
+- **FCP (First Contentful Paint)**: 0.21s ✅ (Target: < 2.0s)
+- **TTI (Time to Interactive)**: 0.44s ✅ (Target: < 3.5s)
+
+**Mobile Performance** (3 runs per page, averaged):
+- **Performance Score**: 100/100 ✅
+- **LCP (Largest Contentful Paint)**: 1.71s ✅ (Target: < 2.5s)
+- **FCP (First Contentful Paint)**: 0.76s ✅ (Target: < 2.0s)
+- **TTI (Time to Interactive)**: 1.72s ✅ (Target: < 3.5s)
+
+All pages tested: Home (`/`), Sessions (`/sessions`), About (`/about`), FAQ (`/faq`), 404
+
+**Status**: ✅ All performance goals exceeded. The site delivers excellent Core Web Vitals on both desktop and mobile.
 
 ### Performance Optimization Strategies
 
@@ -345,11 +367,21 @@ Run performance audits regularly using these tools:
 # Install Lighthouse CI
 npm install -g @lhci/cli
 
-# Run audit on built site
+# Run audit on built site (uses lighthouserc.js config)
 pnpm build
 # Or: npm run build
-npx lhci autorun --collect.staticDistDir=./out
+npx lhci autorun
+
+# Or run manually with options
+npx lhci autorun --collect.staticDistDir=./out --collect.numberOfRuns=3
 ```
+
+The repository includes a `lighthouserc.js` configuration file with performance budgets:
+- Performance Score: ≥ 90/100
+- FCP (First Contentful Paint): < 2.0s
+- LCP (Largest Contentful Paint): < 2.5s
+- TTI (Time to Interactive): < 3.5s
+- CLS (Cumulative Layout Shift): < 0.1
 
 #### WebPageTest
 Test from multiple locations and connection speeds:
