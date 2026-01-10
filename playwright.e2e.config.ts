@@ -21,7 +21,7 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   
   // Retry on CI to handle intermittent network issues and CDN propagation delays
-  retries: process.env.CI ? 3 : 0,
+  retries: process.env.CI ? 2 : 0,
   
   // Opt out of parallel tests on CI
   workers: process.env.CI ? 1 : undefined,
@@ -32,8 +32,9 @@ export default defineConfig({
   // Shared settings for all the projects below
   use: {
     // Base URL for the deployed GitHub Pages site
-    // Can be overridden with DEPLOYED_URL environment variable
-    baseURL: process.env.DEPLOYED_URL || 'https://andy-wall.github.io/btarcetsite/',
+    // Set to the GitHub Pages domain WITHOUT the repository path
+    // Tests will navigate to /btarcetsite/* paths explicitly
+    baseURL: process.env.DEPLOYED_URL || 'https://andy-wall.github.io',
     
     // Collect trace when retrying the failed test
     trace: 'on-first-retry',
