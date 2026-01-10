@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { withBasePath, BASE_PATH } from '../lib/config';
+import { withBasePath } from '../lib/config';
 
 export default function Navigation() {
   const pathname = usePathname();
