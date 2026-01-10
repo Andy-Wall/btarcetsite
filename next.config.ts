@@ -34,6 +34,14 @@ const nextConfig: NextConfig = {
   basePath: '/btarcetsite',
 
   /**
+   * Asset Prefix: Required for static export with basePath
+   * 
+   * When using static export with basePath, we also need to set assetPrefix
+   * to ensure all assets (CSS, JS) are loaded from the correct path.
+   */
+  assetPrefix: '/btarcetsite',
+
+  /**
    * Image Optimization: Disabled
    * 
    * The Next.js Image Optimization API requires a server runtime, which is not
