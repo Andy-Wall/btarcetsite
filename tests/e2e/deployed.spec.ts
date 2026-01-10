@@ -79,22 +79,22 @@ test.describe('GitHub Pages Deployment - Navigation', () => {
     
     // Navigate to sessions
     await page.getByRole('link', { name: /sessions/i }).first().click();
-    await expect(page).toHaveURL(/\/sessions/);
+    await expect(page).toHaveURL(/\/btarcetsite\/sessions/);
     await expect(page.locator('h1')).toContainText('Sessions');
     
     // Navigate to about
     await page.getByRole('link', { name: /about/i }).first().click();
-    await expect(page).toHaveURL(/\/about/);
+    await expect(page).toHaveURL(/\/btarcetsite\/about/);
     await expect(page.locator('h1')).toContainText('About');
     
     // Navigate to FAQ
     await page.getByRole('link', { name: /faq/i }).first().click();
-    await expect(page).toHaveURL(/\/faq/);
+    await expect(page).toHaveURL(/\/btarcetsite\/faq/);
     await expect(page.locator('h1')).toContainText('Frequently Asked Questions');
     
     // Navigate back to home via logo/title link
     await page.getByRole('link', { name: /BTARCET/i }).first().click();
-    await expect(page).toHaveURL(/\/$|\/index/);
+    await expect(page).toHaveURL(/\/btarcetsite\/($|index)/);
     await expect(page.locator('h1')).toContainText('BTARCET Architecture Team Site');
   });
 
@@ -102,7 +102,7 @@ test.describe('GitHub Pages Deployment - Navigation', () => {
     await page.goto('/sessions');
     
     // Find and click first session card if it exists
-    const sessionCard = page.locator('a[href^="/sessions/"]').first();
+    const sessionCard = page.locator('a[href^="/btarcetsite/sessions/"]').first();
     const isVisible = await sessionCard.isVisible().catch(() => false);
     
     if (isVisible) {
@@ -150,7 +150,7 @@ test.describe('GitHub Pages Deployment - Static Assets', () => {
     
     // Click should work (verifies JS is running)
     await sessionsLink.click();
-    await expect(page).toHaveURL(/\/sessions/);
+    await expect(page).toHaveURL(/\/btarcetsite\/sessions/);
   });
 });
 
