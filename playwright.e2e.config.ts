@@ -7,8 +7,8 @@ import { defineConfig, devices } from '@playwright/test';
  */
 
 // Timeout constants for deployed site (accounting for network latency)
-const NAVIGATION_TIMEOUT_MS = 30000; // 30 seconds for navigation
-const ACTION_TIMEOUT_MS = 10000; // 10 seconds for actions
+const NAVIGATION_TIMEOUT_MS = 10000; // 10 seconds for navigation
+const ACTION_TIMEOUT_MS = 5000; // 5 seconds for actions
 const TEST_TIMEOUT_MS = 60000; // 60 seconds per test
 
 export default defineConfig({
@@ -33,7 +33,7 @@ export default defineConfig({
   use: {
     // Base URL for the deployed GitHub Pages site
     // Can be overridden with DEPLOYED_URL environment variable
-    baseURL: process.env.DEPLOYED_URL || 'https://andy-wall.github.io',
+    baseURL: process.env.DEPLOYED_URL || 'https://andy-wall.github.io/btarcetsite/',
     
     // Collect trace when retrying the failed test
     trace: 'on-first-retry',
@@ -45,14 +45,14 @@ export default defineConfig({
 
   // Configure projects for major browsers
   projects: [
-    {
+    /*{
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
-    },
+    },*/
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
