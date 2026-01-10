@@ -25,6 +25,15 @@ const nextConfig: NextConfig = {
   output: 'export',
 
   /**
+   * Base Path: GitHub Pages subdirectory
+   * 
+   * GitHub Pages serves repositories at /<repo-name> unless it's a user/org site.
+   * Since this is a project site (Andy-Wall/btarcetsite), we need to set the
+   * basePath to match the repository name.
+   */
+  basePath: '/btarcetsite',
+
+  /**
    * Image Optimization: Disabled
    * 
    * The Next.js Image Optimization API requires a server runtime, which is not
