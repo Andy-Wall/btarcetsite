@@ -67,6 +67,8 @@ The site is automatically deployed to GitHub Pages and is accessible at:
 
 **Live URL:** [https://silver-adventure-qm6273j.pages.github.io](https://silver-adventure-qm6273j.pages.github.io)
 
+> **Note**: This is GitHub's deployment URL for this repository. The site should be accessible after a successful deployment. If you encounter a "page not available" message, please check the [Actions tab](https://github.com/Andy-Wall/btarcetsite/actions) to verify the latest deployment was successful.
+
 **Automatic Deployment:**
 - Push to `001-btarcet-site` branch triggers the deployment workflow
 - The workflow builds the static site and deploys the `out/` directory to GitHub Pages
