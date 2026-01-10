@@ -105,7 +105,7 @@ test.describe('GitHub Pages Deployment - Navigation', () => {
     await expect(page.locator('h1')).toContainText('Frequently Asked Questions');
     
     // Navigate back to home via logo/title link
-    await page.getByRole('link', { name: /BTARCET/i }).first().click();
+    await page.getByRole('link', { name: /Home/i }).first().click();
     await expect(page).toHaveURL(/\/btarcetsite\/($|index)/);
     await expect(page.locator('h1')).toContainText('BTARCET Architecture Team Site');
   });
