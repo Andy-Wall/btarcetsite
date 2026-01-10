@@ -17,26 +17,25 @@ function fixPathsInFile(filePath) {
   let content = fs.readFileSync(filePath, 'utf8');
   let modified = false;
 
-  // Fix href and src attributes with absolute paths
-  const patterns = [
-    { regex: /href="\/_next\//g, replacement: `href="${BASE_PATH}/_next/` },
-    { regex: /src="\/_next\//g, replacement: `src="${BASE_PATH}/_next/` },
-    { regex: /href="\/([^"]*?)"/g, replacement: (match, p1) => {
-      // Don't replace already prefixed paths, external URLs, or anchors
-      if (p1.startsWith('http') || p1.startsWith('#') || p1.startsWith(BASE_PATH.slice(1))) {
-        return match;
-      }
-      modified = true;
-      return `href="${BASE_PATH}/${p1}"`;
-    }},
-  ];
+  // Fix _next paths first
+  if (content.includes('/_next/')) {
+    content = content.replace(/href="\/_next\//g, `href="${BASE_PATH}/_next/`);
+    content = content.replace(/src="\/_next\//g, `src="${BASE_PATH}/_next/`);
+    modified = true;
+  }
 
-  patterns.forEach(({ regex, replacement }) => {
-    if (content.match(regex)) {
-      content = content.replace(regex, replacement);
-      modified = true;
+  // Fix navigation links (href="/sessions", href="/about", etc.)
+  content = content.replace(/href="\/([^"#][^"]*)"/g, (match, p1) => {
+    // Skip if already has base path, is external URL, or is just a fragment
+    if (p1.startsWith('btarcetsite') || p1.startsWith('http://') || p1.startsWith('https://')) {
+      return match;
     }
+    modified = true;
+    return `href="${BASE_PATH}/${p1}"`;
   });
+
+  // Fix empty href="/" to href="/btarcetsite/"
+  content = content.replace(/href="\/"/g, `href="${BASE_PATH}/"`);
 
   if (modified) {
     fs.writeFileSync(filePath, content, 'utf8');
