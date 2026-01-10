@@ -6,7 +6,7 @@ A modern, accessible static website for the BTARCET Architecture Team. Built wit
 
 The BTARCET site is deployed and accessible at:
 
-**[https://silver-adventure-qm6273j.pages.github.io](https://silver-adventure-qm6273j.pages.github.io)**
+**[https://andy-wall.github.io/btarcetsite/](https://andy-wall.github.io/btarcetsite/)**
 
 Visit the live site to explore:
 - Upcoming and past architecture sessions
@@ -65,7 +65,7 @@ The site is a static export that can be deployed to any static hosting service:
 
 The site is automatically deployed to GitHub Pages and is accessible at:
 
-**Live URL:** [https://silver-adventure-qm6273j.pages.github.io](https://silver-adventure-qm6273j.pages.github.io)
+**Live URL:** [https://andy-wall.github.io/btarcetsite/](https://andy-wall.github.io/btarcetsite/)
 
 > **Note**: This is GitHub's deployment URL for this repository. The site should be accessible after a successful deployment. If you encounter a "page not available" message, please check the [Actions tab](https://github.com/Andy-Wall/btarcetsite/actions) to verify the latest deployment was successful.
 
@@ -207,7 +207,7 @@ pnpm test:e2e
 # npm run test:e2e
 ```
 
-The end-to-end tests verify the production deployment at [https://silver-adventure-qm6273j.pages.github.io](https://silver-adventure-qm6273j.pages.github.io) is working correctly:
+The end-to-end tests verify the production deployment at [https://andy-wall.github.io/btarcetsite/](https://andy-wall.github.io/btarcetsite/) is working correctly:
 
 - **Deployment verification**: All pages load successfully (home, sessions, about, FAQ, 404)
 - **Navigation**: Links work correctly between pages and to session details
