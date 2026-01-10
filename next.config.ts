@@ -25,6 +25,21 @@ const nextConfig: NextConfig = {
   output: 'export',
 
   /**
+   * Base Path: GitHub Pages subdirectory
+   * 
+   * Required for client-side navigation to work correctly on GitHub Pages.
+   * This ensures Next.js router knows about the /btarcetsite prefix.
+   */
+  basePath: '/btarcetsite',
+
+  /**
+   * Asset Prefix: Required for static assets
+   * 
+   * Ensures CSS, JS, and other assets load from the correct path.
+   */
+  assetPrefix: '/btarcetsite',
+
+  /**
    * Trailing Slash: Required for GitHub Pages
    * 
    * GitHub Pages expects URLs to end with a trailing slash for directory routes.
