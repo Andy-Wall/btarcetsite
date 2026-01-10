@@ -86,6 +86,13 @@ The site is automatically deployed to GitHub Pages and is accessible at:
 - Green checkmarks indicate successful deployments
 - Red X marks indicate failed deployments (check logs for details)
 - The "E2E Tests on GitHub Pages" workflow runs after each deployment to verify functionality
+- Click on the "Deploy to GitHub Pages" workflow run to see the deployment URL in the logs
+
+**Verifying GitHub Pages Settings:**
+1. Go to repository Settings → Pages
+2. Verify "Source" is set to "GitHub Actions"
+3. The deployment URL will be displayed after a successful deployment
+4. Ensure GitHub Actions has the necessary permissions (Contents: read, Pages: write)
 
 **Local Build and Deploy:**
 1. Build the static site:
