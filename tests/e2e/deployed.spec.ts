@@ -5,6 +5,10 @@ import { test, expect } from '@playwright/test';
  * These tests verify the production deployment is working correctly
  */
 
+// Test constants
+const DEFAULT_BROWSER_FONT_SIZE = 16; // Default font size in pixels
+const MAX_ACCEPTABLE_LOAD_TIME_MS = 5000; // Maximum acceptable page load time in milliseconds
+
 test.describe('GitHub Pages Deployment - Basic Functionality', () => {
   test('home page loads successfully', async ({ page }) => {
     await page.goto('/');
@@ -109,7 +113,7 @@ test.describe('GitHub Pages Deployment - Navigation', () => {
       await page.waitForLoadState('networkidle');
       
       // Verify we're on detail page
-      expect(page.url()).toContain(href || '');
+      await expect(page).toHaveURL(new RegExp(href || ''));
       
       // Verify detail page has session information
       await expect(page.locator('h1')).toBeVisible();
@@ -133,7 +137,7 @@ test.describe('GitHub Pages Deployment - Static Assets', () => {
     
     // Should have larger than default font size
     const fontSizeValue = parseInt(fontSize);
-    expect(fontSizeValue).toBeGreaterThan(16);
+    expect(fontSizeValue).toBeGreaterThan(DEFAULT_BROWSER_FONT_SIZE);
   });
 
   test('JavaScript is working', async ({ page }) => {
@@ -160,7 +164,7 @@ test.describe('GitHub Pages Deployment - Performance', () => {
     const loadTime = Date.now() - startTime;
     
     // Should load in under 5 seconds even on slower networks
-    expect(loadTime).toBeLessThan(5000);
+    expect(loadTime).toBeLessThan(MAX_ACCEPTABLE_LOAD_TIME_MS);
   });
 
   test('static assets are cacheable', async ({ page }) => {

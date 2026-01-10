@@ -5,6 +5,12 @@ import { defineConfig, devices } from '@playwright/test';
  * This config runs tests against the production deployment
  * See https://playwright.dev/docs/test-configuration
  */
+
+// Timeout constants for deployed site (accounting for network latency)
+const NAVIGATION_TIMEOUT_MS = 30000; // 30 seconds for navigation
+const ACTION_TIMEOUT_MS = 10000; // 10 seconds for actions
+const TEST_TIMEOUT_MS = 60000; // 60 seconds per test
+
 export default defineConfig({
   testDir: './tests/e2e',
   
@@ -33,8 +39,8 @@ export default defineConfig({
     trace: 'on-first-retry',
     
     // Set a reasonable timeout for deployed site (network latency)
-    navigationTimeout: 30000,
-    actionTimeout: 10000,
+    navigationTimeout: NAVIGATION_TIMEOUT_MS,
+    actionTimeout: ACTION_TIMEOUT_MS,
   },
 
   // Configure projects for major browsers
@@ -54,6 +60,5 @@ export default defineConfig({
   ],
 
   // Test timeout for network requests to deployed site
-  // 60 seconds per test to account for network latency
-  timeout: 60000,
+  timeout: TEST_TIMEOUT_MS,
 });
