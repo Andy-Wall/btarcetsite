@@ -2,15 +2,16 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { withBasePath, BASE_PATH } from '../lib/config';
 
 export default function Navigation() {
   const pathname = usePathname();
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/sessions', label: 'Sessions' },
-    { href: '/about', label: 'About' },
-    { href: '/faq', label: 'FAQ' },
+    { href: withBasePath('/'), label: 'Home' },
+    { href: withBasePath('/sessions'), label: 'Sessions' },
+    { href: withBasePath('/about'), label: 'About' },
+    { href: withBasePath('/faq'), label: 'FAQ' },
   ];
 
   return (
@@ -19,8 +20,9 @@ export default function Navigation() {
         <ul className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 py-4 list-none">
           {navLinks.map((link) => {
             // For home page, use exact match. For other pages, match if pathname starts with the href followed by / or is exact
-            const isActive = link.href === '/' 
-              ? pathname === '/' 
+            // pathname from usePathname() should include basePath when basePath is configured
+            const isActive = link.href === withBasePath('/') 
+              ? pathname === withBasePath('/') || pathname === '/'
               : pathname === link.href || pathname?.startsWith(link.href + '/');
             
             return (

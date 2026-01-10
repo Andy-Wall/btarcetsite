@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { withBasePath } from '../lib/config';
 
 export default function NotFound() {
   return (
@@ -21,28 +22,28 @@ export default function NotFound() {
               
               <nav aria-label="Navigation links" className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
-                  href="/"
+                  href={withBasePath('/')}
                   className="inline-block px-6 py-3 bg-blue-600 text-white rounded-md font-medium hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800"
                 >
                   Go to Home
                 </Link>
                 
                 <Link
-                  href="/sessions"
+                  href={withBasePath('/sessions')}
                   className="inline-block px-6 py-3 text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-slate-700 rounded-md font-medium hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800"
                 >
                   View Sessions
                 </Link>
                 
                 <Link
-                  href="/about"
+                  href={withBasePath('/about')}
                   className="inline-block px-6 py-3 text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-slate-700 rounded-md font-medium hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800"
                 >
                   About Us
                 </Link>
                 
                 <Link
-                  href="/faq"
+                  href={withBasePath('/faq')}
                   className="inline-block px-6 py-3 text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-slate-700 rounded-md font-medium hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800"
                 >
                   FAQ

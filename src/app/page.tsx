@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getNextSession } from '../lib/sessions';
 import SessionCard from '../components/SessionCard';
+import { withBasePath } from '../lib/config';
 
 export default function Home() {
   const nextSession = getNextSession();
@@ -28,7 +29,7 @@ export default function Home() {
               </p>
               <p className="text-center">
                 <Link 
-                  href="/sessions" 
+                  href={withBasePath('/sessions')} 
                   className="text-blue-600 dark:text-blue-400 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800 rounded px-1"
                 >
                   View session history
