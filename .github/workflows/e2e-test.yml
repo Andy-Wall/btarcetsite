@@ -53,8 +53,30 @@ jobs:
       
       - name: Wait for GitHub Pages to be ready
         run: |
-          echo "Waiting 30 seconds for GitHub Pages deployment to propagate..."
-          sleep 30
+          echo "Waiting for GitHub Pages deployment to propagate..."
+          MAX_ATTEMPTS=12
+          ATTEMPT=0
+          WAIT_TIME=10
+          
+          while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
+            ATTEMPT=$((ATTEMPT + 1))
+            echo "Attempt $ATTEMPT of $MAX_ATTEMPTS: Checking if site is accessible..."
+            
+            # Check if the site returns 200 OK
+            HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" https://andy-wall.github.io/btarcetsite/ || echo "000")
+            
+            if [ "$HTTP_CODE" = "200" ]; then
+              echo "✓ Site is accessible (HTTP $HTTP_CODE)"
+              break
+            else
+              echo "✗ Site returned HTTP $HTTP_CODE, waiting ${WAIT_TIME}s..."
+              sleep $WAIT_TIME
+            fi
+            
+            if [ $ATTEMPT -eq $MAX_ATTEMPTS ]; then
+              echo "⚠ Warning: Site may not be fully ready, but proceeding with tests..."
+            fi
+          done
       
       - name: Run E2E tests against deployed site
         run: pnpm test:e2e

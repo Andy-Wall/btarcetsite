@@ -7,9 +7,9 @@ import { defineConfig, devices } from '@playwright/test';
  */
 
 // Timeout constants for deployed site (accounting for network latency)
-const NAVIGATION_TIMEOUT_MS = 10000; // 10 seconds for navigation
-const ACTION_TIMEOUT_MS = 5000; // 5 seconds for actions
-const TEST_TIMEOUT_MS = 60000; // 60 seconds per test
+const NAVIGATION_TIMEOUT_MS = 15000; // 15 seconds for navigation (increased for CI)
+const ACTION_TIMEOUT_MS = 10000; // 10 seconds for actions (increased for CI)
+const TEST_TIMEOUT_MS = 90000; // 90 seconds per test (increased for CI)
 
 export default defineConfig({
   testDir: './tests/e2e',
@@ -20,8 +20,8 @@ export default defineConfig({
   // Fail the build on CI if you accidentally left test.only in the source code
   forbidOnly: !!process.env.CI,
   
-  // Retry on CI to handle intermittent network issues
-  retries: process.env.CI ? 2 : 0,
+  // Retry on CI to handle intermittent network issues and CDN propagation delays
+  retries: process.env.CI ? 3 : 0,
   
   // Opt out of parallel tests on CI
   workers: process.env.CI ? 1 : undefined,
