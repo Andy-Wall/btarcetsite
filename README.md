@@ -2,6 +2,18 @@
 
 A modern, accessible static website for the BTARCET Architecture Team. Built with Next.js, TypeScript, and Tailwind CSS.
 
+## 🌐 Live Site
+
+The BTARCET site is deployed and accessible at:
+
+**[https://silver-adventure-qm6273j.pages.github.io](https://silver-adventure-qm6273j.pages.github.io)**
+
+Visit the live site to explore:
+- Upcoming and past architecture sessions
+- Team information and mission
+- Frequently asked questions
+- Session details and speaker information
+
 ## Quick Start
 
 ### Prerequisites
@@ -51,17 +63,27 @@ The site is a static export that can be deployed to any static hosting service:
 
 ### GitHub Pages
 
-The site automatically deploys to GitHub Pages when changes are pushed to the `001-btarcet-site` branch.
+The site is automatically deployed to GitHub Pages and is accessible at:
+
+**Live URL:** [https://silver-adventure-qm6273j.pages.github.io](https://silver-adventure-qm6273j.pages.github.io)
 
 **Automatic Deployment:**
 - Push to `001-btarcet-site` branch triggers the deployment workflow
 - The workflow builds the static site and deploys the `out/` directory to GitHub Pages
-- View the live site at your GitHub Pages URL
+- After deployment completes (usually 1-2 minutes), changes are live at the URL above
+- End-to-end tests automatically run after deployment to verify the site is working correctly
 
 **Manual Deployment:**
-- Navigate to the Actions tab in your repository
+- Navigate to the [Actions tab](https://github.com/Andy-Wall/btarcetsite/actions) in the repository
 - Select the "Deploy to GitHub Pages" workflow
 - Click "Run workflow" to manually trigger a deployment
+- Monitor the workflow progress and check the live site once complete
+
+**Viewing Deployment Status:**
+- Go to the [Actions tab](https://github.com/Andy-Wall/btarcetsite/actions) to see deployment history
+- Green checkmarks indicate successful deployments
+- Red X marks indicate failed deployments (check logs for details)
+- The "E2E Tests on GitHub Pages" workflow runs after each deployment to verify functionality
 
 **Local Build and Deploy:**
 1. Build the static site:
@@ -164,6 +186,47 @@ pnpm test:ui
 pnpm test:debug
 # Or with npm:
 # npm run test:debug
+```
+
+## End-to-End Tests
+
+Run Playwright end-to-end tests against the deployed GitHub Pages site:
+
+```bash
+pnpm test:e2e
+# Or with npm:
+# npm run test:e2e
+```
+
+The end-to-end tests verify the production deployment at [https://silver-adventure-qm6273j.pages.github.io](https://silver-adventure-qm6273j.pages.github.io) is working correctly:
+
+- **Deployment verification**: All pages load successfully (home, sessions, about, FAQ, 404)
+- **Navigation**: Links work correctly between pages and to session details
+- **Static assets**: CSS and JavaScript load and function properly
+- **Performance**: Pages load in reasonable time with proper caching
+- **Accessibility**: Proper document structure, skip links, and keyboard navigation
+- **Cross-browser**: Tests run on Chromium, Firefox, and WebKit
+
+These tests run automatically after each deployment via GitHub Actions and can also be triggered manually. For debugging:
+
+```bash
+# Run e2e tests with UI mode
+pnpm test:e2e:ui
+# Or with npm:
+# npm run test:e2e:ui
+
+# Run e2e tests in debug mode
+pnpm test:e2e:debug
+# Or with npm:
+# npm run test:e2e:debug
+```
+
+**Testing against a different URL:**
+
+You can test against a different deployed URL by setting the `DEPLOYED_URL` environment variable:
+
+```bash
+DEPLOYED_URL=https://your-custom-domain.com pnpm test:e2e
 ```
 
 

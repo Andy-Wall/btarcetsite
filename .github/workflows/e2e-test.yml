@@ -1,0 +1,70 @@
+name: E2E Tests on GitHub Pages
+
+on:
+  # Run after successful deployment
+  workflow_run:
+    workflows: ["Deploy to GitHub Pages"]
+    types:
+      - completed
+  # Allow manual trigger
+  workflow_dispatch:
+  # Run on schedule to catch regressions (once per day)
+  schedule:
+    - cron: '0 9 * * *'  # 9 AM UTC daily
+
+jobs:
+  e2e-tests:
+    # Only run if deployment succeeded (or if manually triggered/scheduled)
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' }}
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8
+      
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+      
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+      
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+      
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install --with-deps chromium firefox webkit
+      
+      - name: Wait for GitHub Pages to be ready
+        run: |
+          echo "Waiting 30 seconds for GitHub Pages deployment to propagate..."
+          sleep 30
+      
+      - name: Run E2E tests against deployed site
+        run: pnpm test:e2e
+        env:
+          DEPLOYED_URL: https://silver-adventure-qm6273j.pages.github.io
+      
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-e2e-report
+          path: playwright-report/
+          retention-days: 30
