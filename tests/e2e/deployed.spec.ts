@@ -33,7 +33,7 @@ test.describe('GitHub Pages Deployment - Basic Functionality', () => {
   });
 
   test('sessions page loads successfully', async ({ page }) => {
-    const response = await page.goto('/btarcetsite/sessions/', { waitUntil: 'networkidle' });
+    const response = await page.goto('/btarcetsite/sessions', { waitUntil: 'networkidle' });
     
     // Verify response is successful
     expect(response?.status()).toBe(200);
@@ -50,7 +50,7 @@ test.describe('GitHub Pages Deployment - Basic Functionality', () => {
   });
 
   test('about page loads successfully', async ({ page }) => {
-    const response = await page.goto('/btarcetsite/about/', { waitUntil: 'networkidle' });
+    const response = await page.goto('/btarcetsite/about', { waitUntil: 'networkidle' });
     
     // Verify response is successful
     expect(response?.status()).toBe(200);
@@ -63,7 +63,7 @@ test.describe('GitHub Pages Deployment - Basic Functionality', () => {
   });
 
   test('faq page loads successfully', async ({ page }) => {
-    const response = await page.goto('/btarcetsite/faq/', { waitUntil: 'networkidle' });
+    const response = await page.goto('/btarcetsite/faq', { waitUntil: 'networkidle' });
     
     // Verify response is successful
     expect(response?.status()).toBe(200);
@@ -111,7 +111,7 @@ test.describe('GitHub Pages Deployment - Navigation', () => {
   });
 
   test('session detail page navigation works', async ({ page }) => {
-    await page.goto('/btarcetsite/sessions/', { waitUntil: 'networkidle' });
+    await page.goto('/btarcetsite/sessions', { waitUntil: 'networkidle' });
     
     // Find and click first session card if it exists
     const sessionCard = page.locator('a[href^="/btarcetsite/sessions/"]').first();
