@@ -33,7 +33,7 @@ export default defineConfig({
   use: {
     // Base URL for the deployed GitHub Pages site
     // Can be overridden with DEPLOYED_URL environment variable
-    baseURL: process.env.DEPLOYED_URL || 'https://silver-adventure-qm6273j.pages.github.io',
+    baseURL: process.env.DEPLOYED_URL || 'https://andy-wall.github.io',
     
     // Collect trace when retrying the failed test
     trace: 'on-first-retry',
