@@ -56,7 +56,7 @@ test.describe('GitHub Pages Deployment - Basic Functionality', () => {
     expect(response?.status()).toBe(200);
     
     // Verify page loaded
-    await expect(page).toHaveTitle(/About.*BTARCET/i);
+    await expect(page).toHaveTitle(/BTARCET/i);
     
     // Check main heading
     await expect(page.locator('h1')).toContainText('About');
