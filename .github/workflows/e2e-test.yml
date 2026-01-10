@@ -81,7 +81,7 @@ jobs:
       - name: Run E2E tests against deployed site
         run: pnpm test:e2e
         env:
-          DEPLOYED_URL: https://andy-wall.github.io/btarcetsite/
+          DEPLOYED_URL: https://andy-wall.github.io
       
       - name: Upload test results
         uses: actions/upload-artifact@v4

@@ -40,7 +40,7 @@ const nextConfig: NextConfig = {
   assetPrefix: '/btarcetsite',
 
   /**
-   * Trailing Slash: Required for GitHub Pages
+   * Trailing Slash: Not working for GitHub Pages
    * 
    * GitHub Pages expects URLs to end with a trailing slash for directory routes.
    */
